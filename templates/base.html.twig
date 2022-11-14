@@ -218,7 +218,7 @@
 					<div class="row g-0 popup-gallery">
 						{% for hackathon in hackathons %}
 							<div class="col-sm-6 col-lg-4">
-								<a class="portfolio-box" href="{{hackathon.image}}"><img class="img-fluid" src="{{ asset('img/thumbnails/1.jpg?h=56a68e7dda0ccee51a3ee9052291ff82') }}">
+								<a class="portfolio-box" href={{hackathon.image}}><img class="img-fluid" src={{hackathon.image}}>
 									<div class="portfolio-box-caption" style="background: var(--bs-primary);">
 										<div class="portfolio-box-caption-content">
 											<div id="hackaNameDiv" class="project-category text-faded">
