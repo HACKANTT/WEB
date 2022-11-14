@@ -20,11 +20,13 @@ class Inscription
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateInscription = null;
 
-    #[ORM\Column]
-    private ?int $idH = null;
+    #[ORM\ManyToOne(inversedBy: 'inscriptions')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?hackatons $id_H = null;
 
-    #[ORM\Column]
-    private ?int $idU = null;
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?utilisateurs $id_U = null;
 
     public function getId(): ?int
     {
@@ -54,19 +56,6 @@ class Inscription
 
         return $this;
     }
-
-    public function getIdH(): ?int
-    {
-        return $this->idH;
-    }
-
-    public function setIdH(int $idH): self
-    {
-        $this->idH = $idH;
-
-        return $this;
-    }
-
     public function getIdU(): ?int
     {
         return $this->idU;
@@ -75,6 +64,18 @@ class Inscription
     public function setIdU(int $idU): self
     {
         $this->idU = $idU;
+
+        return $this;
+    }
+
+    public function getIdH(): ?hackatons
+    {
+        return $this->id_H;
+    }
+
+    public function setIdH(?hackatons $id_H): self
+    {
+        $this->id_H = $id_H;
 
         return $this;
     }
