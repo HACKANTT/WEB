@@ -218,7 +218,7 @@
 					<div class="row g-0 popup-gallery">
 						{% for hackathon in hackathons %}
 							<div class="col-sm-6 col-lg-4">
-								<a class="portfolio-box" href={{hackathon.image}}><img class="img-fluid" src={{hackathon.image}}>
+								<a class="portfolio-box" style="height: 100%;" href={{hackathon.image}}><img class="img-fluid" style="height: 100%;object-fit: cover;" src={{hackathon.image}}>
 									<div class="portfolio-box-caption" style="background: var(--bs-primary);">
 										<div class="portfolio-box-caption-content">
 											<div id="hackaNameDiv" class="project-category text-faded">
@@ -346,15 +346,16 @@
 				<!-- Start: Footer Basic -->
 				<footer class="text-center">
 					<div class="container text-muted py-4 py-lg-5">
+					<p style="font-family: ABeeZee, sans-serif;">Portfolio :</p>
 						<ul class="list-inline" style="font-family: ABeeZee, sans-serif;">
 							<li class="list-inline-item me-4">
-								<a class="link-secondary" href="loizeau.site">Portfolio 1</a>
+								<a class="link-secondary" href="https://loizeau.site">Nikolas Loizeau</a>
 							</li>
 							<li class="list-inline-item me-4">
-								<a class="link-secondary" href="#">Portfolio 2</a>
+								<a class="link-secondary" href="https://tproutiere.wixsite.com/portfolio">Théo Proutière</a>
 							</li>
-							<li class="list-inline-item">
-								<a class="link-secondary" href="#">Portfolio 3</a>
+							<li class="list-inline-item me-4">
+								<a class="link-secondary" href="https://sites.google.com/view/tpalestro-portfolio/accueil">Théo Palestro</a>
 							</li>
 						</ul>
 						<ul class="list-inline">
