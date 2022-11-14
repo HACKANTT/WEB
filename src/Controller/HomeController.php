@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Hackatons;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,10 +21,11 @@ class HomeController extends AbstractController
         ]);
     }
     #[Route('/', name: 'app_home')]
-    public function home(): Response
+    public function home(ManagerRegistry $doctrine): Response
     {
+        $hackatons = $doctrine->getRepository(Hackatons::class)->findAll();
         return $this->render('base.html.twig', [
-            'controller_name' => 'Bienvenue sur Fou de Séries',
-        ]); 
+            'hackathons' => $hackatons,
+        ]);
     }
 }

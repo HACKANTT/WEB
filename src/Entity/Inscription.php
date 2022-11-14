@@ -26,7 +26,7 @@ class Inscription
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?utilisateurs $id_U = null;
+    private ?Utilisateurs $id_U = null;
 
     public function getId(): ?int
     {
