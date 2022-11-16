@@ -22,7 +22,7 @@ class APIController extends AbstractController
         ]);
     }
 
-#[Route('/hackathon', name: 'app_api_hackathon', methods:'GET')]
+#[Route('/hackathons', name: 'app_api_hackathon', methods:'GET')]
     public function hackathon(ManagerRegistry $doctrine): JsonResponse
     {
         $hackatons = $doctrine->getRepository(Hackatons::class)->findAll();
@@ -49,7 +49,7 @@ class APIController extends AbstractController
 
 }
 
-#[Route('/hackathon/{id}', name: 'app_api_unhackathon')]
+#[Route('/hackathons/{id}', name: 'app_api_unhackathon')]
 public function detail_hackathon(ManagerRegistry $doctrine, $id): JsonResponse
 {
     $unhack = $doctrine->getRepository(Hackatons::class)->findOneBy(['id' =>$id]);
