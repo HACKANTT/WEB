@@ -22,7 +22,7 @@ class APIController extends AbstractController
         ]);
     }
 
-#[Route('/hackathons', name: 'app_api_hackathon', methods:'GET')]
+#[Route('/api/hackathons', name: 'app_api_hackathon', methods:'GET')]
     public function hackathon(ManagerRegistry $doctrine): JsonResponse
     {
         $hackatons = $doctrine->getRepository(Hackatons::class)->findAll();
@@ -49,7 +49,7 @@ class APIController extends AbstractController
 
 }
 
-#[Route('/hackathons/{id}', name: 'app_api_unhackathon')]
+#[Route('/api/hackathons/{id}', name: 'app_api_unhackathon')]
 public function detail_hackathon(ManagerRegistry $doctrine, $id): JsonResponse
 {
     $unhack = $doctrine->getRepository(Hackatons::class)->findOneBy(['id' =>$id]);
@@ -72,7 +72,7 @@ public function detail_hackathon(ManagerRegistry $doctrine, $id): JsonResponse
         ];
         return new JsonResponse($tab);
     }
-#[Route('/utilisateurs', name: 'app_api_utilisateurs')]
+#[Route('/api/utilisateurs', name: 'app_api_utilisateurs')]
 public function utilisateurs(ManagerRegistry $doctrine): JsonResponse
 {
     $utilisateurs = $doctrine->getRepository(Utilisateurs::class)->findAll();
@@ -102,7 +102,7 @@ public function utilisateurs(ManagerRegistry $doctrine): JsonResponse
     }
     return new JsonResponse($tab);
 }
-#[Route('/utilisateurs/{id}', name: 'app_api_unutilisateur')]
+#[Route('/api/utilisateurs/{id}', name: 'app_api_unutilisateur')]
 public function detail_utilisateur(ManagerRegistry $doctrine, $id): JsonResponse
 {
     $unutilisateur = $doctrine->getRepository(Utilisateurs::class)->findOneBy(['id' =>$id]);
@@ -131,7 +131,7 @@ public function detail_utilisateur(ManagerRegistry $doctrine, $id): JsonResponse
         return new JsonResponse($tab);
     }
 
-#[Route('/evenements', name:'app_api_evenements')]
+#[Route('/api/evenements', name:'app_api_evenements')]
 public function evenements(ManagerRegistry $doctrine): JsonResponse
 {
     $evenements = $doctrine->getRepository(Evenements::class)->findAll();
@@ -156,7 +156,7 @@ public function evenements(ManagerRegistry $doctrine): JsonResponse
     }
     return new JsonResponse($tab);
 }
-#[Route('/evenements/{id}', name: 'app_api_unevenement')]
+#[Route('/api/evenements/{id}', name: 'app_api_unevenement')]
 public function detail_evenement(ManagerRegistry $doctrine, $id): JsonResponse
 {
     $unevenement = $doctrine->getRepository(Evenements::class)->findOneBy(['id' =>$id]);
