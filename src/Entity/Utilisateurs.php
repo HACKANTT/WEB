@@ -32,6 +32,12 @@ class Utilisateurs
     #[ORM\Column(length: 255)]
     private ?string $lienPortfolio = null;
 
+    #[ORM\Column(length: 15)]
+    private ?string $login = null;
+
+    #[ORM\Column(length: 32)]
+    private ?string $pswd = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +111,30 @@ class Utilisateurs
     public function setLienPortfolio(string $lienPortfolio): self
     {
         $this->lienPortfolio = $lienPortfolio;
+
+        return $this;
+    }
+
+    public function getLogin(): ?string
+    {
+        return $this->login;
+    }
+
+    public function setLogin(string $login): self
+    {
+        $this->login = $login;
+
+        return $this;
+    }
+
+    public function getPswd(): ?string
+    {
+        return $this->pswd;
+    }
+
+    public function setPswd(string $pswd): self
+    {
+        $this->pswd = $pswd;
 
         return $this;
     }
