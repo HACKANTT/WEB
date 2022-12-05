@@ -3,10 +3,16 @@
 namespace App\Entity;
 
 use App\Repository\EvenementsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+#[ORM\Table(name: 'evenements')]
 #[ORM\Entity(repositoryClass: EvenementsRepository::class)]
+#[ORM\InheritanceType('JOINED')]
+#[ORM\DiscriminatorColumn(name: "type", type: 'string')]
+#[ORM\DiscriminatorMap(['atelier'=> Atelier::class, 'conference'=> Conference::class])]
 class Evenements
 {
     #[ORM\Id]
@@ -28,6 +34,16 @@ class Evenements
 
     #[ORM\Column(length: 255)]
     private ?string $salle = null;
+
+    #[ORM\ManyToOne(inversedBy: 'evenements')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Hackatons $hackaton = null;
+
+
+    public function __construct()
+    {
+        
+    }
 
     public function getId(): ?int
     {
@@ -93,4 +109,17 @@ class Evenements
 
         return $this;
     }
+
+    public function getHackaton(): ?Hackatons
+    {
+        return $this->hackaton;
+    }
+
+    public function setHackaton(?Hackatons $hackaton): self
+    {
+        $this->hackaton = $hackaton;
+
+        return $this;
+    }
+
 }

@@ -22,6 +22,9 @@ class Inscrits
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[ORM\ManyToOne(inversedBy: 'inscrits')]
+    private ?Atelier $relationAtelier = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Inscrits
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getRelationAtelier(): ?Atelier
+    {
+        return $this->relationAtelier;
+    }
+
+    public function setRelationAtelier(?Atelier $relationAtelier): self
+    {
+        $this->relationAtelier = $relationAtelier;
 
         return $this;
     }

@@ -58,9 +58,14 @@ class Hackatons
     #[ORM\OneToMany(mappedBy: 'id_H', targetEntity: Inscription::class)]
     private Collection $inscriptions;
 
+    #[ORM\OneToMany(mappedBy: 'hackaton', targetEntity: Evenements::class, orphanRemoval: true)]
+    private Collection $evenements;
+
+
     public function __construct()
     {
         $this->inscriptions = new ArrayCollection();
+        $this->evenements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -224,33 +229,40 @@ class Hackatons
         return $this;
     }
 
-    /**
-     * @return Collection<int, Inscription>
-     */
-    public function getInscriptions(): Collection
+
+
+    public function getEvenements(): ?Evenements
     {
-        return $this->inscriptions;
+        return $this->evenements;
     }
 
-    public function addInscription(Inscription $inscription): self
+    public function setEvenements(?Evenements $evenements): self
     {
-        if (!$this->inscriptions->contains($inscription)) {
-            $this->inscriptions->add($inscription);
-            $inscription->setIdH($this);
+        $this->evenements = $evenements;
+
+        return $this;
+    }
+
+    public function addEvenement(Evenements $evenement): self
+    {
+        if (!$this->evenements->contains($evenement)) {
+            $this->evenements->add($evenement);
+            $evenement->setHackaton($this);
         }
 
         return $this;
     }
 
-    public function removeInscription(Inscription $inscription): self
+    public function removeEvenement(Evenements $evenement): self
     {
-        if ($this->inscriptions->removeElement($inscription)) {
+        if ($this->evenements->removeElement($evenement)) {
             // set the owning side to null (unless already changed)
-            if ($inscription->getIdH() === $this) {
-                $inscription->setIdH(null);
+            if ($evenement->getHackaton() === $this) {
+                $evenement->setHackaton(null);
             }
         }
 
         return $this;
     }
+
 }
