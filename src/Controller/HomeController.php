@@ -24,7 +24,7 @@ class HomeController extends AbstractController
     public function home(ManagerRegistry $doctrine): Response
     {
         $hackatons = $doctrine->getRepository(Hackatons::class)->findAll();
-        return $this->render('base.html.twig', [
+        return $this->render('b_head.html.twig', [
             'hackathons' => $hackatons,
         ]);
     }
