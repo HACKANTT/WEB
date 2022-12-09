@@ -1,4 +1,10 @@
-<header class="text-center text-white d-flex masthead" data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="1" style="
+{% extends 'b_head.html.twig' %}
+
+{% block title %}Hackat'Agence{% endblock %}
+
+{% block body %}
+
+			<header class="text-center text-white d-flex masthead" data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="1" style="
 															            background-image:url({{ asset('img/header.jpg?h=d64d3b1204b99281a7156bbd48871756')}}); ">
 				<div class="container my-auto">
 					<div class="row">
@@ -116,7 +122,7 @@
 					<div class="row g-0 popup-gallery">
 						{% for hackathon in hackathons %}
 							<div class="col-sm-6 col-lg-4">
-								<a class="portfolio-box" style="height: 100%;" href={{hackathon.image}}><img class="img-fluid" style="height: 100%;object-fit: cover;" src={{hackathon.image}}>
+								<a class="portfolio-box" style="height: 100%;" href="api/hackathons/{{hackathon.id}}"><img class="img-fluid" style="height: 100%;object-fit: cover;" src={{hackathon.image}}>
 									<div class="portfolio-box-caption" style="background: var(--bs-primary);">
 										<div class="portfolio-box-caption-content">
 											<div id="hackaNameDiv" class="project-category text-faded">
@@ -136,7 +142,7 @@
 			</section>
 			<section class="text-white bg-dark" data-bss-parallax-bg="true" id="galerie" style="background: url(&quot;{{ asset('img/modern-futuristic-sci-fi-background.jpg?h=08e165ee798ccf77db5c697f0861355a&quot;);background-size: auto;') }}">
 				<div class="container text-center">
-					<h2 data-aos="fade" data-aos-once="true" class="mb-4">Quelques photos de nos hackatons</h2>
+					<h2 data-aos="fade" data-aos-once="true" class="mb-4">Quelques photos de nos hackathons</h2>
 					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="light my-4">
 				</div>
 				<!-- Start: Cool Lightbox with Gallery -->
@@ -178,7 +184,7 @@
 						<div class="col-lg-8 text-center mx-auto">
 							<h2 class="section-heading">Contactez-nous !</h2>
 							<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4" style="border-color: var(--bs-primary);">
-							<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Prêt à participer à nos hackatons ? C'est génial !
+							<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Prêt à participer à nos hackathons ? C'est génial !
 								<br>Appelez-nous ou envoyez-nous un courriel et nous vous répondrons dans les plus brefs délais !</p>
 						</div>
 					</div>
@@ -241,3 +247,4 @@
 						</div>
 					</div>
 				</div>
+{% endblock %}
