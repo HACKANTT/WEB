@@ -54,7 +54,7 @@ public function detail_hackathon(ManagerRegistry $doctrine, $id): JsonResponse
 {
     $unhack = $doctrine->getRepository(Hackatons::class)->findOneBy(['id' =>$id]);
     $tab = [];
-        $tab[] = [
+        $tab = [
             'id' => $unhack->getId(),
             'dateDebut' => $unhack->getDateDebut(),
             'dateFin' => $unhack->getDateFin(),
@@ -107,7 +107,7 @@ public function detail_utilisateur(ManagerRegistry $doctrine, $id): JsonResponse
 {
     $unutilisateur = $doctrine->getRepository(Utilisateurs::class)->findOneBy(['id' =>$id]);
     $tab = [];
-        $tab[] = [
+        $tab = [
             'id' => $unutilisateur->getId(),
             'nom' => $unutilisateur->getNom(),
             'prenom' => $unutilisateur->getPrenom(),
@@ -161,7 +161,7 @@ public function detail_evenement(ManagerRegistry $doctrine, $id): JsonResponse
 {
     $unevenement = $doctrine->getRepository(Evenements::class)->findOneBy(['id' =>$id]);
     $tab = [];
-        $tab[] = [
+        $tab = [
             'id' => $unevenement->getId(),
             'dateDebut' => $unevenement->getDateDebut(),
             'dateFin' => $unevenement->getDateFin(),
