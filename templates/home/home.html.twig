@@ -140,24 +140,22 @@
 					<div id="myModal" class="modal fade" role="dialog">
 						<div
 							class="modal-dialog">
-
 							<!-- Modal content-->
 							<div class="modal-content">
 								<div class="modal-header">
 									<h4 class="modal-title">Informations sur ce hackathon</h4>
 								</div>
-								<div class="modal-body">
+								<div class="modal-body" style="font-family:Open Sans,Helvetica Neue,Arial,sans-serif !important">
 									<p>Aucune information à afficher.</p>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-primary">S'inscrire</button>
+									<a type="button" class="btn btn-primary" href="http://127.0.0.1:8001/inscription/{{hackathon.id}}">S'inscrire</a>
+									<button type="button" class="btn btn-secondary">Se connecter</button>
 									<button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
 								</div>
 							</div>
-
 						</div>
 					</div>
-
 				{% endfor %}
 				<script>
 					(function ($) {
@@ -168,9 +166,9 @@ type: "GET",
 url: 'http://127.0.0.1:8001/api/hackathons/' + $(this).data('id'),
 dataType: 'json',
 success: function (data) {
-console.log(data[0].cp);
-
-infoModal.find('.modal-body').html(data);
+console.log(data);
+htmlData = '<img src="' + data.image + '" class="img-fluid" alt="image du hackathon"><br><br><h4> ' + data.theme + '</h4><br><ul><li><strong>Description:</strong> ' + data.description + '</li><li><strong>Lieu:</strong> ' + data.lieu + ', ' + data.rue + ' à ' + data.ville + ' - ' + data.cp + '</li><li><strong>Date limite d\'inscription:</strong> ' + data.dateLimite.date + '</li><li><strong>Nombre de places restantes:</strong> ' + data.nbPlaces + '</li></ul>'
+infoModal.find('.modal-body').html(htmlData);
 infoModal.modal('show');
 }
 });
@@ -178,7 +176,7 @@ infoModal.modal('show');
 return false;
 });
 })(jQuery);
-				</script>
+</script>
 			</div>
 		</div>
 	</section>
