@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+{% block head %}
 	<head>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<meta charset="utf-8">
@@ -32,6 +33,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
 	</head>
+{% endblock %}
 	<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="57">
 		{% block body %}
 			<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
@@ -94,6 +96,7 @@
 								<div class="mb-3">
 									<button class="btn btn-primary d-block w-100" type="submit" style="background: var(--bs-primary);">CONNEXION&nbsp;</button>
 								</div>
+								<p class="text-muted" style="font-family: ABeeZee, sans-serif;" action="inscription.php"><a href="{{path('app_inscription')}}">Pas de compte? Inscription</a></p>
 								<p class="text-muted" style="font-family: ABeeZee, sans-serif;">Mot de passe oublié ?</p>
 							</form>
 						</div>
