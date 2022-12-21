@@ -146,7 +146,7 @@ xmlhttp.send();
 
 
 <script>
-function myFunction() {
+function recherche() {
   var input, filter, table, div, span, i, txtValue;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
@@ -167,7 +167,7 @@ function myFunction() {
 </script>
 
 <div style="display:flex ; justify-content: flex-end">
-<input class="form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Rechercher par ville" title="Type in a name" onclick="this.value=''" 
+<input class="form-control" type="text" id="myInput" onkeyup="recherche()" placeholder="Rechercher une ville :" title="Type in a name" onclick="this.value=''" 
 style="background-image: url(https://www.w3schools.com/css/searchicon.png);
     background-position: 10px 15px;
     background-repeat: no-repeat;
