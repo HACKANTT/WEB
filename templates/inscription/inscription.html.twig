@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}S'inscrire
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<div class="alert" role="alert">
+			<h1>Inscription</h1>
+			<br>
+			<p class="mb-0">Si vous avez déjà un compte, vous pouvez vous connecter
+				<a href="">ici</a>.</p>
+		</div>
+
+	<br/>
+	<div class="card" style="font-family: Open Sans,Helvetica Neue,Arial,sans-serif;">
+		<div class="card-body">
+			<h5 class="card-title">Je veux créer mon compte 💡</h5>
+
+			{{ form_start(form) }}
+			<br/>
+			{{form_row(form.nom) }}
+			<br/>
+			{{ form_row(form.prenom) }}
+			<br/>
+			{{ form_row(form.mail) }}
+			<br/>
+			{{ form_row(form.tel) }}
+			<br/>
+			{{ form_row(form.dateNaissance) }}
+			<br/>
+			{{ form_row(form.lienPortfolio) }}
+			<br/>
+			{{ form_row(form.login) }}
+			<br/>
+			{{ form_row(form.pswd) }}
+			<br/>
+			<input class="btn btn-primary" type='submit' value="Je m'inscris" name='btnSubmit'>
+
+			{{ form_end(form) }}
+		</div>
+	</div>
+</div>{% endblock %}
