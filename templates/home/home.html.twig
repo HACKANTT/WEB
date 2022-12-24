@@ -174,7 +174,7 @@ div[i].style.display = "none";
 							<input type="text" id="search" placeholder="Rechercher un hackathon" style="width: 25%;height: 50px;border: none;border-radius: 0px;color: var(--bs-light);font-size: 20px;">
 							<a class="btn btn-light btn-xl" role="button" href="#hackathons">rechercher</a>
 						</div>-->
-		<div class="container-fluid p-0">
+		<div class="container-fluid p-0" style="max-width: 1950px;">
 			<div class="row g-0 justify-content-between">
 				<div class="col text-center mx-auto">
 					<h2 class="section-heading">Nos hackathons</h2>
@@ -209,13 +209,13 @@ div[i].style.display = "none";
 				<!-- Modal -->
 				<div id="myModal" class="modal fade" role="dialog">
 					<div
-						class="modal-dialog">
+						class="modal-dialog modal-lg">
 						<!-- Modal content-->
 						<div class="modal-content">
 							<div class="modal-header">
 								<h4 class="modal-title">Informations sur ce hackathon</h4>
 							</div>
-							<div class="modal-body" style="font-family:Open Sans,Helvetica Neue,Arial,sans-serif !important">
+							<div class="modal-body" style="display: flex;font-family:Open Sans,Helvetica Neue,Arial,sans-serif !important;flex-direction: column;">
 								<p>Aucune information à afficher.</p>
 
 							</div>
@@ -234,7 +234,7 @@ var infoModal = $('#myModal');
 $('.portfolio-box').on('click', function () {
 $.ajax({
 type: "GET",
-url: '/api/hackathons/' + $(this).data('id'),
+url: 'index.php/api/hackathons/' + $(this).data('id'),
 dataType: 'json',
 success: function (data) {
 console.log(data);
