@@ -6,7 +6,7 @@
 {% block body %}
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<header class="text-center text-white d-flex masthead" data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="1" style="
-																		            background-image:url({{ asset('img/header.jpg?h=d64d3b1204b99281a7156bbd48871756')}}); ">
+																								            background-image:url({{ asset('img/header.jpg?h=d64d3b1204b99281a7156bbd48871756')}}); ">
 		<div class="container my-auto">
 			<div class="row">
 				<div class="col-lg-10 mx-auto">
@@ -21,8 +21,8 @@
 			<div class="col-lg-8 mx-auto">
 				<p class="fs-5 text-faded mb-5" data-aos="fade-down" data-aos-delay="100" style="font-family: ABeeZee, sans-serif;">
 					<span style="color: rgb(195, 190, 182); background-color: var(--green-100);">Les hackathons sont des événements où
-																																						            les participants sont invités à résoudre des problèmes en utilisant des technologies de
-																																						            l'informatique.</span><br></p>
+																	les participants sont invités à résoudre des problèmes en utilisant des technologies de
+																	l'informatique.</span><br></p>
 				<a class="btn btn-primary btn-xl" role="button" href="#service" style="background: var(--bs-primary);">EXPLORER NOS HACKATHONS<br></a>
 				<center>
 					<div>
@@ -41,14 +41,14 @@
 					</h2>
 					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="light my-4">
 					<p class="fs-5 text-faded mb-4" style="font-family: ABeeZee, sans-serif;filter: blur(0px);backdrop-filter: blur(0px);margin-top: 30px;">Nous
-																																						            avons pour but de simplifier&nbsp;la gestion de l'organisation&nbsp;de hackathons. Pour cela plusieurs
-																																						            applications&nbsp;sont en cours de développement, dont celle que vous consultez en ce moment
-																																						            même.<br><br><br>Hackat'Agence, c'est une plateforme web, mais aussi une&nbsp;application mobile
+																	avons pour but de simplifier&nbsp;la gestion de l'organisation&nbsp;de hackathons. Pour cela plusieurs
+																	applications&nbsp;sont en cours de développement, dont celle que vous consultez en ce moment
+																	même.<br><br><br>Hackat'Agence, c'est une plateforme web, mais aussi une&nbsp;application mobile
 						<br>qui
-																																						            permet aux participants de suivre toutes les activités annexes des hackathons.<br>Enfin, c'est aussi une
-																																						            application bureau, pour simplifier le travail des organisateurs en coordonnant les différentes
-																																						            opérations.<br><br><br>L'entreprise a été créée en 2022 par trois entrepreneurs français, Théo Proutière,
-																																						            Nikolas Loizeau, et Théo Palestro.<br><br></p>
+																	permet aux participants de suivre toutes les activités annexes des hackathons.<br>Enfin, c'est aussi une
+																	application bureau, pour simplifier le travail des organisateurs en coordonnant les différentes
+																	opérations.<br><br><br>L'entreprise a été créée en 2022 par trois entrepreneurs français, Théo Proutière,
+																	Nikolas Loizeau, et Théo Palestro.<br><br></p>
 					<a class="btn btn-light btn-xl" role="button" href="#service">plus de DÉTAILs</a>
 				</div>
 			</div>
@@ -74,8 +74,8 @@
 						</svg>
 						<h3 class="text-center mb-3">Des Hackathons réguliers</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Permettent aux participants
-																																											              de développer leurs compétences et de se familiariser avec les outils et différentes
-																																											              technologies/outils.<br></p>
+																																																									              de développer leurs compétences et de se familiariser avec les outils et différentes
+																																																									              technologies/outils.<br></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 text-center">
@@ -87,7 +87,7 @@
 						</svg>
 						<h3 class="mb-3">Intervenants de renommée&nbsp;</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Apportent leur expertise et
-																																											              leur savoir-faire aux participants, ce qui leur permet d'améliorer leurs propres compétences.<br></p>
+																																																									              leur savoir-faire aux participants, ce qui leur permet d'améliorer leurs propres compétences.<br></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 text-center">
@@ -99,7 +99,7 @@
 						</svg>
 						<h3 class="mb-3">Ateliers d'initiation pour les débutants</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Contribue à apprendre les
-																																											              bases nécessaires pour se lancer dans différents projet et permettent de progresser rapidement</p>
+																																																									              bases nécessaires pour se lancer dans différents projet et permettent de progresser rapidement</p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 offset-xxl-0 text-center">
@@ -111,129 +111,125 @@
 						</svg>
 						<h3 class="mb-3">Conférences sur divers sujets</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Permet d'en apprendre
-																																											              davantage sur les différents aspects du développement et de se tenir au courant des dernières tendances.
+																																																									              davantage sur les différents aspects du développement et de se tenir au courant des dernières tendances.
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<section id="hackathons" class="p-0">
-	<!-- recherche ajax interactive
+	<section
+		id="hackathons" class="p-0">
+		<!-- recherche ajax interactive
+						<script>
+							function showResult(str) {
+				if (str.length == 0) {
+				document.getElementById("livesearch").innerHTML = "";
+				document.getElementById("livesearch").style.border = "0px";
+				return;
+				}
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("livesearch").innerHTML = this.responseText;
+				document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+				}
+				}
+				xmlhttp.open("GET", "http://127.0.0.1:8001/api/recherche/" + str, true);
+				xmlhttp.send();
+				}
+						</script>
+				
+						<form style="display:flex ; justify-content: flex-end">
+							<input type="text" size="30" onkeyup="showResult(this.value)" placeholder="Rechercher la ville d'un hackathon">
+							<div id="livesearch"></div>
+						</form>-->
 		<script>
-			function showResult(str) {
-if (str.length == 0) {
-document.getElementById("livesearch").innerHTML = "";
-document.getElementById("livesearch").style.border = "0px";
-return;
+			function recherche() {
+var input,
+filter,
+table,
+div,
+span,
+i,
+txtValue;
+input = document.getElementById("myInput");
+filter = input.value.toUpperCase();
+table = document.getElementById("table_hackat");
+div = table.getElementsByTagName("div");
+for (i = 0; i < div.length; i++) {
+span = div[i].getElementsByTagName("span")[2];
+if (span) {
+txtValue = span.textContent || span.innerText;
+if (txtValue.toUpperCase().indexOf(filter) > -1) {
+div[i].style.display = "";
+} else {
+div[i].style.display = "none";
 }
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function () {
-if (this.readyState == 4 && this.status == 200) {
-document.getElementById("livesearch").innerHTML = this.responseText;
-document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
 }
 }
-xmlhttp.open("GET", "http://127.0.0.1:8001/api/recherche/" + str, true);
-xmlhttp.send();
 }
 		</script>
-
-		<form style="display:flex ; justify-content: flex-end">
-			<input type="text" size="30" onkeyup="showResult(this.value)" placeholder="Rechercher la ville d'un hackathon">
-			<div id="livesearch"></div>
-		</form>-->
-
-
-<script>
-function recherche() {
-  var input, filter, table, div, span, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("table_hackat");
-  div = table.getElementsByTagName("div");
-  for (i = 0; i < div.length; i++) {
-    span = div[i].getElementsByTagName("span")[2];
-    if (span) {
-      txtValue = span.textContent || span.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        div[i].style.display = "";
-      } else {
-        div[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
-
-<div style="display:flex ; justify-content: flex-end">
-<input class="form-control" type="text" id="myInput" onkeyup="recherche()" placeholder="Rechercher une ville :" title="Type in a name" onclick="this.value=''" 
-style="background-image: url(https://www.w3schools.com/css/searchicon.png);
-    background-position: 10px 15px;
-    background-repeat: no-repeat;
-    width: 560px;
-    /* font-size: 16px; */
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin: 12px;
-    border-radius: 50px;
-    font-family: Open Sans,Helvetica Neue,Arial,sans-serif;">
-</div>
-
-		<!--- <div id="recherhce" class="container-fluid p-0" style="display:flex ; justify-content: flex-end">
-			<input type="text" id="search" placeholder="Rechercher un hackathon" style="width: 25%;height: 50px;border: none;border-radius: 0px;color: var(--bs-light);font-size: 20px;">
-			<a class="btn btn-light btn-xl" role="button" href="#hackathons">rechercher</a>
-		</div>-->
+		<!--- <div id="recherche" class="container-fluid p-0" style="display:flex ; justify-content: flex-end">
+							<input type="text" id="search" placeholder="Rechercher un hackathon" style="width: 25%;height: 50px;border: none;border-radius: 0px;color: var(--bs-light);font-size: 20px;">
+							<a class="btn btn-light btn-xl" role="button" href="#hackathons">rechercher</a>
+						</div>-->
 		<div class="container-fluid p-0">
-			<div class="col-lg-8 text-center mx-auto">
-                <h2 class="section-heading">Nos hackathons</h2>
-                <hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4 aos-init aos-animate" style="/* border-color: var(--bs-primary); */">
-                <p class="mb-5" style="font-family: ABeeZee, sans-serif;">Parcourez nos hackathons du moment ou recherchez votre ville !
-                </br>Et pour plus d'informations sur un hackathon, on clique dessus ! 😉</p>
-            </div>
-			<div class="row g-0 popup-gallery">
-				{% for hackathon in hackathons %}
-					<div class="col-sm-6 col-lg-4">
-						<a class="portfolio-box" data-id="{{hackathon.id}}" style="height: 100%;"><img class="img-fluid" style="height: 100%;object-fit: cover;" src={{hackathon.image}}>
-							<div class="portfolio-box-caption" style="background: var(--bs-primary);">
-								<div class="portfolio-box-caption-content">
-									<div id="hackaNameDiv" class="project-category text-faded">
-										<span id="hackaName" style="font-family: 'Open Sans', sans-serif;">{{hackathon.theme}}</span>
-									</div>
-									<div id="hackaDetailDiv" class="project-name">
-										<span id="hackaDetail" style="font-family: 'Open Sans', sans-serif;">{{hackathon.description}}</span>
-									</div>
-									<div id="hackaVilleDiv" class="project-name">
-										<span id="hackatVille" style="font-family: 'Open Sans', sans-serif; opacity: 0%">{{hackathon.ville}}</span>
-									</div>
+			<div class="row g-0 justify-content-between">
+				<div class="col text-center mx-auto">
+					<h2 class="section-heading">Nos hackathons</h2>
+					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4 aos-init aos-animate" style="/* border-color: var(--bs-primary); */">
+					<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Parcourez nos hackathons du moment ou recherchez votre ville !
+					<br>Et pour plus d'informations sur un hackathon, on clique dessus ! 😉</p>
+		</div>
+		<div class="col text-center mx-auto" style="display: flex;align-items: center;justify-content: flex-end;">
+			<input class="form-control" type="text" id="myInput" onkeyup="recherche()" placeholder="Rechercher une ville :" title="Type in a name" style="background-image: url(https://www.w3schools.com/css/searchicon.png);background-position: 10px 15px;background-repeat: no-repeat;width: 560px;padding: 12px 20px 12px 40px;border: 1px solid #ddd;margin: 50px;border-radius: 50px;font-family: Open Sans,Helvetica Neue,Arial,sans-serif;">
+		</div>
+	</div>
+	<div style="display:flex;justify-content: center;">
+		<div id="table_hackat" class="row g-0 popup-gallery" style="width:1950px">
+			{% for hackathon in hackathons %}
+				<div class="col-sm-6 col-lg-4">
+					<a class="portfolio-box" data-id="{{hackathon.id}}" style="height: 100%;"><img class="img-fluid" style="height: 100%;object-fit: cover;" src={{hackathon.image}}>
+						<div class="portfolio-box-caption" style="background: var(--bs-primary);">
+							<div class="portfolio-box-caption-content">
+								<div id="hackaNameDiv" class="project-category text-faded">
+									<span id="hackaName" style="font-family: 'Open Sans', sans-serif;">{{hackathon.theme}}</span>
 								</div>
-							</div>
-						</a>
-					</div>
-					<!-- Modal -->
-					<div id="myModal" class="modal fade" role="dialog">
-						<div
-							class="modal-dialog">
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title">Informations sur ce hackathon</h4>
+								<div id="hackaDetailDiv" class="project-name">
+									<span id="hackaDetail" style="font-family: 'Open Sans', sans-serif;">{{hackathon.description}}</span>
 								</div>
-								<div class="modal-body" style="font-family:Open Sans,Helvetica Neue,Arial,sans-serif !important">
-									<p>Aucune information à afficher.</p>
-									
-								</div>
-								<div class="modal-footer">
-									<a type="button" class="btn btn-primary" href="http://127.0.0.1:8001/inscription/{{hackathon.id}}">S'inscrire</a>
-									<button type="button" class="btn btn-secondary">Se connecter</button>
-									<button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
+								<div id="hackaVilleDiv" class="project-name">
+									<span id="hackatVille" style="font-family: 'Open Sans', sans-serif; opacity: 0%">{{hackathon.ville}}</span>
 								</div>
 							</div>
 						</div>
+					</a>
+				</div>
+				<!-- Modal -->
+				<div id="myModal" class="modal fade" role="dialog">
+					<div
+						class="modal-dialog">
+						<!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">Informations sur ce hackathon</h4>
+							</div>
+							<div class="modal-body" style="font-family:Open Sans,Helvetica Neue,Arial,sans-serif !important">
+								<p>Aucune information à afficher.</p>
+
+							</div>
+							<div class="modal-footer">
+								<a type="button" class="btn btn-primary" href="http://127.0.0.1:8001/inscription/{{hackathon.id}}">S'inscrire</a>
+								<button type="button" class="btn btn-secondary">Se connecter</button>
+								<button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
+							</div>
+						</div>
 					</div>
-				{% endfor %}
-				<script>
-					(function ($) {
+				</div>
+			{% endfor %}
+			<script>
+				(function ($) {
 var infoModal = $('#myModal');
 $('.portfolio-box').on('click', function () {
 $.ajax({
@@ -242,7 +238,7 @@ url: '/api/hackathons/' + $(this).data('id'),
 dataType: 'json',
 success: function (data) {
 console.log(data);
-htmlData = '<img src="' + data.image + '" class="img-fluid" alt="image du hackathon"><br><br><h4> ' + data.theme + '</h4><br><ul><li><strong>Description:</strong> ' + data.description + '</li><li><strong>Lieu:</strong> ' + data.lieu + ', ' + data.rue + ' à ' + data.ville + ' - ' + data.cp + '<iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBBsM0iiWw3EHaTaHnRYtYPWq5GeBEM2pE&amp;q='+data.lieu+','+ data.rue+','+data.ville+'&amp;zoom=8" loading="lazy" width="100%" height="300"></iframe><br></li><li><strong>Date limite d\'inscription:</strong> ' + data.dateLimite.date + '</li><li><strong>Nombre de places restantes:</strong> ' + data.nbPlaces + '</li></ul>';
+htmlData = '<img src="' + data.image + '" class="img-fluid" alt="image du hackathon"><br><br><h4> ' + data.theme + '</h4><br><ul><li><strong>Description:</strong> ' + data.description + '</li><li><strong>Lieu:</strong> ' + data.lieu + ', ' + data.rue + ' à ' + data.ville + ' - ' + data.cp + '<iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBBsM0iiWw3EHaTaHnRYtYPWq5GeBEM2pE&amp;q=' + data.lieu + ',' + data.rue + ',' + data.ville + '&amp;zoom=8" loading="lazy" width="100%" height="300"></iframe><br></li><li><strong>Date limite d\'inscription:</strong> ' + data.dateLimite.date + '</li><li><strong>Nombre de places restantes:</strong> ' + data.nbPlaces + '</li></ul>';
 infoModal.find('.modal-body').html(htmlData);
 infoModal.modal('show');
 }
@@ -251,115 +247,117 @@ infoModal.modal('show');
 return false;
 });
 })(jQuery);
-</script>
+			</script>
 			</div>
 		</div>
-	</section>
-	<section class="text-white bg-dark" data-bss-parallax-bg="true" id="galerie" style="background: url(&quot;{{ asset('img/modern-futuristic-sci-fi-background.jpg?h=08e165ee798ccf77db5c697f0861355a&quot;);background-size: auto;') }}">
-		<div class="container text-center">
-			<h2 data-aos="fade" data-aos-once="true" class="mb-4">Quelques photos de nos hackathons</h2>
-			<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="light my-4">
-		</div>
-		<!-- Start: Cool Lightbox with Gallery -->
-		<div class="container">
-			<div class="row" data-aos="fade-up" data-aos-once="true" style="margin-top: 4rem;">
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a data-fancybox="gallery" href="{{ asset('img/gallerie/1.jpg?h=68edb08842d0ff16554d66a83280c4db') }}"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/1.jpg?h=68edb08842d0ff16554d66a83280c4db') }}"></a>
-				</div>
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a href="{{ asset('img/gallerie/2.jpg?h=2060444eb1256ce9bb74b5552095191c') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/2.jpg?h=2060444eb1256ce9bb74b5552095191c') }}"></a>
-				</div>
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a href="{{ asset('img/gallerie/3.jpg?h=85998555d90aa838f21f09429beb9154') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/3.jpg?h=85998555d90aa838f21f09429beb9154') }}"></a>
-				</div>
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a href="{{ asset('img/gallerie/4.jpg?h=0f9562f049bdd495f85ab99f4893fb62') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/4.jpg?h=0f9562f049bdd495f85ab99f4893fb62') }}"></a>
-				</div>
+	</div>
+
+</section>
+<section class="text-white bg-dark" data-bss-parallax-bg="true" id="galerie" style="background: url(&quot;{{ asset('img/modern-futuristic-sci-fi-background.jpg?h=08e165ee798ccf77db5c697f0861355a&quot;);background-size: auto;') }}">
+	<div class="container text-center">
+		<h2 data-aos="fade" data-aos-once="true" class="mb-4">Quelques photos de nos hackathons</h2>
+		<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="light my-4">
+	</div>
+	<!-- Start: Cool Lightbox with Gallery -->
+	<div class="container">
+		<div class="row" data-aos="fade-up" data-aos-once="true" style="margin-top: 4rem;">
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a data-fancybox="gallery" href="{{ asset('img/gallerie/1.jpg?h=68edb08842d0ff16554d66a83280c4db') }}"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/1.jpg?h=68edb08842d0ff16554d66a83280c4db') }}"></a>
 			</div>
-			<div class="row" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" style="margin-bottom: -50px;">
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a href="{{ asset('img/gallerie/5.jpg?h=6bac7df9f12d48eccb6446ac368c239e') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/5.jpg?h=6bac7df9f12d48eccb6446ac368c239e') }}"></a>
-				</div>
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a href="{{ asset('img/gallerie/6.jpg?h=36a805561332fb2945678ec47212f7d4') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/6.jpg?h=36a805561332fb2945678ec47212f7d4') }}"></a>
-				</div>
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a href="{{ asset('img/gallerie/7.jpg?h=622341fb5af9111da1ae91d45dcec575') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/7.jpg?h=622341fb5af9111da1ae91d45dcec575') }}"></a>
-				</div>
-				<div class="col-md-3" style="margin-bottom: 50px;">
-					<a href="{{ asset('img/gallerie/8.jpg?h=ecb2b2d80b53b28212174c1f6bb4fb01') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/8.jpg?h=ecb2b2d80b53b28212174c1f6bb4fb01') }}"></a>
-				</div>
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a href="{{ asset('img/gallerie/2.jpg?h=2060444eb1256ce9bb74b5552095191c') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/2.jpg?h=2060444eb1256ce9bb74b5552095191c') }}"></a>
+			</div>
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a href="{{ asset('img/gallerie/3.jpg?h=85998555d90aa838f21f09429beb9154') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/3.jpg?h=85998555d90aa838f21f09429beb9154') }}"></a>
+			</div>
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a href="{{ asset('img/gallerie/4.jpg?h=0f9562f049bdd495f85ab99f4893fb62') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/4.jpg?h=0f9562f049bdd495f85ab99f4893fb62') }}"></a>
 			</div>
 		</div>
-		<!-- End: Cool Lightbox with Gallery -->
-	</section>
-	<section id="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 text-center mx-auto">
-					<h2 class="section-heading">Contactez-nous !</h2>
-					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4" style="border-color: var(--bs-primary);">
-					<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Prêt à participer à nos hackathons ? C'est génial !
-						<br>Appelez-nous ou envoyez-nous un courriel et nous vous répondrons dans les plus brefs délais !</p>
-				</div>
+		<div class="row" data-aos="fade-up" data-aos-delay="200" data-aos-once="true" style="margin-bottom: -50px;">
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a href="{{ asset('img/gallerie/5.jpg?h=6bac7df9f12d48eccb6446ac368c239e') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/5.jpg?h=6bac7df9f12d48eccb6446ac368c239e') }}"></a>
 			</div>
-			<div class="row d-flex justify-content-center">
-				<div class="col-md-6 col-lg-4 col-xl-4">
-					<div class="d-flex flex-column justify-content-center align-items-start h-100">
-						<div class="d-flex align-items-center p-3">
-							<div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true">
-								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-telephone">
-									<path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
-								</svg>
-							</div>
-							<div class="px-2">
-								<h6 data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="350" data-aos-once="true" class="mb-0" style="font-weight: bold;">Téléphone</h6>
-								<p data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="400" data-aos-once="true" class="mb-0" style="font-family: ABeeZee, sans-serif;">06 65 54 43 32<br></p>
-							</div>
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a href="{{ asset('img/gallerie/6.jpg?h=36a805561332fb2945678ec47212f7d4') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/6.jpg?h=36a805561332fb2945678ec47212f7d4') }}"></a>
+			</div>
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a href="{{ asset('img/gallerie/7.jpg?h=622341fb5af9111da1ae91d45dcec575') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/7.jpg?h=622341fb5af9111da1ae91d45dcec575') }}"></a>
+			</div>
+			<div class="col-md-3" style="margin-bottom: 50px;">
+				<a href="{{ asset('img/gallerie/8.jpg?h=ecb2b2d80b53b28212174c1f6bb4fb01') }}" data-fancybox="gallery"><img data-bss-hover-animate="pulse" class="img-fluid" src="{{ asset('img/gallerie/8.jpg?h=ecb2b2d80b53b28212174c1f6bb4fb01') }}"></a>
+			</div>
+		</div>
+	</div>
+	<!-- End: Cool Lightbox with Gallery -->
+</section>
+<section id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 text-center mx-auto">
+				<h2 class="section-heading">Contactez-nous !</h2>
+				<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4" style="border-color: var(--bs-primary);">
+				<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Prêt à participer à nos hackathons ? C'est génial !
+					<br>Appelez-nous ou envoyez-nous un courriel et nous vous répondrons dans les plus brefs délais !</p>
+			</div>
+		</div>
+		<div class="row d-flex justify-content-center">
+			<div class="col-md-6 col-lg-4 col-xl-4">
+				<div class="d-flex flex-column justify-content-center align-items-start h-100">
+					<div class="d-flex align-items-center p-3">
+						<div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-telephone">
+								<path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
+							</svg>
 						</div>
-						<div class="d-flex align-items-center p-3">
-							<div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true">
-								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-envelope">
-									<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"></path>
-								</svg>
-							</div>
-							<div class="px-2">
-								<h6 data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="350" data-aos-once="true" class="mb-0" style="font-weight: bold;">Email</h6>
-								<p data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="400" data-aos-once="true" class="mb-0" style="font-family: ABeeZee, sans-serif;">hackantt@gmail.com</p>
-							</div>
+						<div class="px-2">
+							<h6 data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="350" data-aos-once="true" class="mb-0" style="font-weight: bold;">Téléphone</h6>
+							<p data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="400" data-aos-once="true" class="mb-0" style="font-family: ABeeZee, sans-serif;">06 65 54 43 32<br></p>
 						</div>
-						<div class="d-flex align-items-center p-3">
-							<div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true">
-								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-pin">
-									<path d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354zm1.58 1.408-.002-.001.002.001zm-.002-.001.002.001A.5.5 0 0 1 6 2v5a.5.5 0 0 1-.276.447h-.002l-.012.007-.054.03a4.922 4.922 0 0 0-.827.58c-.318.278-.585.596-.725.936h7.792c-.14-.34-.407-.658-.725-.936a4.915 4.915 0 0 0-.881-.61l-.012-.006h-.002A.5.5 0 0 1 10 7V2a.5.5 0 0 1 .295-.458 1.775 1.775 0 0 0 .351-.271c.08-.08.155-.17.214-.271H5.14c.06.1.133.191.214.271a1.78 1.78 0 0 0 .37.282z"></path>
-								</svg>
-							</div>
-							<div class="px-2">
-								<h6 data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="350" data-aos-once="true" class="mb-0" style="font-weight: bold;">Localisation</h6>
-								<p data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="400" data-aos-once="true" class="mb-0" style="font-family: ABeeZee, sans-serif;">France - Savary de Mauléon</p>
-							</div>
+					</div>
+					<div class="d-flex align-items-center p-3">
+						<div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-envelope">
+								<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"></path>
+							</svg>
+						</div>
+						<div class="px-2">
+							<h6 data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="350" data-aos-once="true" class="mb-0" style="font-weight: bold;">Email</h6>
+							<p data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="400" data-aos-once="true" class="mb-0" style="font-family: ABeeZee, sans-serif;">hackantt@gmail.com</p>
+						</div>
+					</div>
+					<div class="d-flex align-items-center p-3">
+						<div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-once="true">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-pin">
+								<path d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354zm1.58 1.408-.002-.001.002.001zm-.002-.001.002.001A.5.5 0 0 1 6 2v5a.5.5 0 0 1-.276.447h-.002l-.012.007-.054.03a4.922 4.922 0 0 0-.827.58c-.318.278-.585.596-.725.936h7.792c-.14-.34-.407-.658-.725-.936a4.915 4.915 0 0 0-.881-.61l-.012-.006h-.002A.5.5 0 0 1 10 7V2a.5.5 0 0 1 .295-.458 1.775 1.775 0 0 0 .351-.271c.08-.08.155-.17.214-.271H5.14c.06.1.133.191.214.271a1.78 1.78 0 0 0 .37.282z"></path>
+							</svg>
+						</div>
+						<div class="px-2">
+							<h6 data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="350" data-aos-once="true" class="mb-0" style="font-weight: bold;">Localisation</h6>
+							<p data-aos="zoom-in-right" data-aos-duration="300" data-aos-delay="400" data-aos-once="true" class="mb-0" style="font-family: ABeeZee, sans-serif;">France - Savary de Mauléon</p>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-5 col-xl-4">
-					<div>
-						<form
-							id="contact" class="p-3 p-xl-4" method="post">
-							<!-- Start: Success Example -->
-							<div class="mb-3"></div>
-							<!-- End: Success Example -->
-							<!-- Start: Error Example -->
-							<div class="mb-3"><input class="form-control" type="email" id="email" name="email" placeholder="Email" style="font-family: ABeeZee, sans-serif;"></div>
-							<!-- End: Error Example -->
-							<div class="mb-3">
-								<textarea class="form-control" id="message" name="message" rows="6" placeholder="Message" style="font-family: ABeeZee, sans-serif;"></textarea>
-							</div>
-							<div>
-								<button class="btn btn-primary d-block w-100" id="envoyer" type="submit" style="background: var(--bs-primary);">Envoyer</button>
-							</div>
-						</form>
-					</div>
+			</div>
+			<div class="col-md-6 col-lg-5 col-xl-4">
+				<div>
+					<form
+						id="contact" class="p-3 p-xl-4" method="post">
+						<!-- Start: Success Example -->
+						<div class="mb-3"></div>
+						<!-- End: Success Example -->
+						<!-- Start: Error Example -->
+						<div class="mb-3"><input class="form-control" type="email" id="email" name="email" placeholder="Email" style="font-family: ABeeZee, sans-serif;"></div>
+						<!-- End: Error Example -->
+						<div class="mb-3">
+							<textarea class="form-control" id="message" name="message" rows="6" placeholder="Message" style="font-family: ABeeZee, sans-serif;"></textarea>
+						</div>
+						<div>
+							<button class="btn btn-primary d-block w-100" id="envoyer" type="submit" style="background: var(--bs-primary);">Envoyer</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
-	{% endblock %}
+	</div>
+{% endblock %}
