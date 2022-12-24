@@ -120,6 +120,12 @@
 	</section>
 	<section id="hackathons" class="p-0">
 		<div class="container-fluid p-0">
+			<div class="col-lg-8 text-center mx-auto">
+                <h2 class="section-heading">Nos hackathons</h2>
+                <hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4 aos-init aos-animate" style="/* border-color: var(--bs-primary); */">
+                <p class="mb-5" style="font-family: ABeeZee, sans-serif;">Parcourez nos hackathons du moment ou recherchez votre ville !
+                </br>Et pour plus d'informations sur un hackathon, on clique dessus ! 😉</p>
+            </div>
 			<div class="row g-0 popup-gallery">
 				{% for hackathon in hackathons %}
 					<div class="col-sm-6 col-lg-4">
@@ -164,7 +170,7 @@ var infoModal = $('#myModal');
 $('.portfolio-box').on('click', function () {
 $.ajax({
 type: "GET",
-url: 'http://127.0.0.1:8001/api/hackathons/' + $(this).data('id'),
+url: '/api/hackathons/' + $(this).data('id'),
 dataType: 'json',
 success: function (data) {
 console.log(data);
