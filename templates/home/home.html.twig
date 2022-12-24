@@ -234,7 +234,7 @@ var infoModal = $('#myModal');
 $('.portfolio-box').on('click', function () {
 $.ajax({
 type: "GET",
-url: 'index.php/api/hackathons/' + $(this).data('id'),
+url: '/api/hackathons/' + $(this).data('id'),
 dataType: 'json',
 success: function (data) {
 console.log(data);
