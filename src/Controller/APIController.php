@@ -8,6 +8,7 @@ use App\Entity\Utilisateurs;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -180,7 +181,37 @@ public function detail_evenement(ManagerRegistry $doctrine, $id): JsonResponse
         return new JsonResponse($tab);
     }
 
+    ##############################RECHERCHE##############################
 
+    /*#[Route('/api/recherche/{str}', name:'app_api_recherche')]
+    public function recherche(ManagerRegistry $doctrine, Request $request): JsonResponse
+    {
+        $recherche = $request->query->get('{str}');
+        $hackathons = $doctrine->getRepository(Hackatons::class)->findBy(['ville' => $recherche]);
+        $tab = [];
+        foreach ($hackathons as $unhack) {
+            $tab[] = [
+                'id' => $unhack->getId(),
+                'dateDebut' => $unhack->getDateDebut(),
+                'dateFin' => $unhack->getDateFin(),
+                'description' => $unhack->getDescription(),
+                'image' => $unhack->getImage(),
+                'nbPlaces' => $unhack->getNbPlaces(),
+                'theme' => $unhack->getTheme(),
+                'lieu' => $unhack->getLieu(),
+                'rue' => $unhack->getRue(),
+                'ville' => $unhack->getVille(),
+                'cp' => $unhack->getCp(),
+                'dateLimite' => $unhack->getDateLimite(),
+                'heureDebut' => $unhack->getHeureDebut(),
+                'heureFin' => $unhack->getHeureFin(),
+            ];
+        }
+        return new JsonResponse($tab);
+    }
+    */
+
+    ##############################SERIES (exemple à ne pas suppr)##############################
 
 
 /*
@@ -263,3 +294,6 @@ public function detail_evenement(ManagerRegistry $doctrine, $id): JsonResponse
 */
 
 }
+
+
+
