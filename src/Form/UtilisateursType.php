@@ -112,7 +112,7 @@ class UtilisateursType extends AbstractType
                 'dateNaissance',
                 BirthdayType::class,
                 array(
-                    'label' => 'Date de naissance',
+                    'label' => 'Date de naissance :',
                     'widget' => 'choice',
                     'placeholder' => [
                         'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
