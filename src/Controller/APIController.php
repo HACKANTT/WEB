@@ -140,19 +140,13 @@ public function evenements(ManagerRegistry $doctrine): JsonResponse
     foreach ($evenements as $unevenement) {
         $tab[] = [
             'id' => $unevenement->getId(),
-            'dateDebut' => $unevenement->getDateDebut(),
-            'dateFin' => $unevenement->getDateFin(),
-            'description' => $unevenement->getDescription(),
-            'image' => $unevenement->getImage(),
-            'nbPlaces' => $unevenement->getNbPlaces(),
-            'theme' => $unevenement->getTheme(),
-            'lieu' => $unevenement->getLieu(),
-            'rue' => $unevenement->getRue(),
-            'ville' => $unevenement->getVille(),
-            'cp' => $unevenement->getCp(),
-            'dateLimite' => $unevenement->getDateLimite(),
-            'heureDebut' => $unevenement->getHeureDebut(),
-            'heureFin' => $unevenement->getHeureFin(),
+            'libelle' => $unevenement->getLibelle(),
+            'dateEvent' => $unevenement->getDateEvent(),
+            'heure' => $unevenement->getHeure(),
+            'duree' => $unevenement->getDuree(),
+            'salle' => $unevenement->getSalle(),
+            'hackathon_id' => $unevenement->getHackaton(),
+
         ];
     }
     return new JsonResponse($tab);
@@ -164,19 +158,12 @@ public function detail_evenement(ManagerRegistry $doctrine, $id): JsonResponse
     $tab = [];
         $tab = [
             'id' => $unevenement->getId(),
-            'dateDebut' => $unevenement->getDateDebut(),
-            'dateFin' => $unevenement->getDateFin(),
-            'description' => $unevenement->getDescription(),
-            'image' => $unevenement->getImage(),
-            'nbPlaces' => $unevenement->getNbPlaces(),
-            'theme' => $unevenement->getTheme(),
-            'lieu' => $unevenement->getLieu(),
-            'rue' => $unevenement->getRue(),
-            'ville' => $unevenement->getVille(),
-            'cp' => $unevenement->getCp(),
-            'dateLimite' => $unevenement->getDateLimite(),
-            'heureDebut' => $unevenement->getHeureDebut(),
-            'heureFin' => $unevenement->getHeureFin(),
+            'libelle' => $unevenement->getLibelle(),
+            'dateEvent' => $unevenement->getDateEvent(),
+            'heure' => $unevenement->getHeure(),
+            'duree' => $unevenement->getDuree(),
+            'salle' => $unevenement->getSalle(),
+            'hackathon_id' => $unevenement->getHackaton(),
         ];
         return new JsonResponse($tab);
     }
