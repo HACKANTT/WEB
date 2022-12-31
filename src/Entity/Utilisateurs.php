@@ -129,13 +129,14 @@ class Utilisateurs
 
     public function getPswd(): ?string
     {
+        
         return $this->pswd;
     }
 
     public function setPswd(string $pswd): self
     {
-        $this->pswd = $pswd;
-
+        $hash =password_hash($pswd, PASSWORD_BCRYPT);
+        $this->pswd = $hash;
         return $this;
     }
 }
