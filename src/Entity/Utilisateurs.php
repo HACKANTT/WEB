@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UtilisateursRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -37,6 +39,14 @@ class Utilisateurs
 
     #[ORM\Column(length: 32)]
     private ?string $pswd = null;
+
+    #[ORM\OneToMany(mappedBy: 'utilisateurs', targetEntity: Inscription::class, orphanRemoval: true)]
+    private Collection $idI;
+
+    public function __construct()
+    {
+        $this->idI = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -135,6 +145,36 @@ class Utilisateurs
     public function setPswd(string $pswd): self
     {
         $this->pswd = $pswd;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Inscription>
+     */
+    public function getIdI(): Collection
+    {
+        return $this->idI;
+    }
+
+    public function addIdI(Inscription $idI): self
+    {
+        if (!$this->idI->contains($idI)) {
+            $this->idI->add($idI);
+            $idI->setUtilisateurs($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIdI(Inscription $idI): self
+    {
+        if ($this->idI->removeElement($idI)) {
+            // set the owning side to null (unless already changed)
+            if ($idI->getUtilisateurs() === $this) {
+                $idI->setUtilisateurs(null);
+            }
+        }
 
         return $this;
     }

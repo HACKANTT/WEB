@@ -28,6 +28,10 @@ class Inscription
     #[ORM\JoinColumn(nullable: false)]
     private ?Utilisateurs $id_U = null;
 
+    #[ORM\ManyToOne(inversedBy: 'idI')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Utilisateurs $utilisateurs = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -76,6 +80,18 @@ class Inscription
     public function setIdH(?hackatons $id_H): self
     {
         $this->id_H = $id_H;
+
+        return $this;
+    }
+
+    public function getUtilisateurs(): ?Utilisateurs
+    {
+        return $this->utilisateurs;
+    }
+
+    public function setUtilisateurs(?Utilisateurs $utilisateurs): self
+    {
+        $this->utilisateurs = $utilisateurs;
 
         return $this;
     }
