@@ -223,9 +223,12 @@
 
 									</div>
 									<div class="modal-footer">
-										<a type="button" class="btn btn-primary" href="http://127.0.0.1:8001/inscription/{{hackathon.id}}">S'inscrire</a>
-										<button type="button" class="btn btn-secondary">Se connecter</button>
-										<button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
+										{% if app.user %}
+										<a type="button" class="btn btn-primary btn-lg" href="http://127.0.0.1:8001/inscription/{{hackathon.id}}">Rejoindre ce hackathon</a>
+										{% else %}
+										<button type="button " class="btn btn-secondary btn-lg" href="/connexion.php" data-bs-target="#connexionModal" data-bs-toggle="modal">Veuillez vous connecter pour rejoindre ce hackathon</button>
+										{% endif %}
+										<button type="button" class="btn btn-default btn-lg" data-bs-dismiss="modal">Fermer</button>
 									</div>
 								</div>
 							</div>

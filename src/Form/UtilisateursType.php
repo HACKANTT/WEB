@@ -164,7 +164,7 @@ class UtilisateursType extends AbstractType
                 )
             )
             ->add(
-                'pswd',
+                'password',
                 PasswordType::class,
                 array(
                     'help' => 'Le mot de passe doit contenir au moins 6 caractères, dont une majuscule, une minuscule, et un caractère spécial.',

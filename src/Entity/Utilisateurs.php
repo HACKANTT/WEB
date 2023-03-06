@@ -5,14 +5,21 @@ namespace App\Entity;
 use App\Repository\UtilisateursRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UtilisateursRepository::class)]
-class Utilisateurs
+#[UniqueEntity(fields: ['mail'], message: 'Il y a déjà un compte avec ce mail')]
+class Utilisateurs implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
+
+    #[ORM\Column]
+    private array $roles = [];
 
     #[ORM\Column(length: 255)]
     private ?string $nom = null;
@@ -35,8 +42,8 @@ class Utilisateurs
     #[ORM\Column(length: 15)]
     private ?string $login = null;
 
-    #[ORM\Column(length: 32)]
-    private ?string $pswd = null;
+    #[ORM\Column(length: 512)]
+    private ?string $Password = null;
 
     public function getId(): ?int
     {
@@ -127,15 +134,46 @@ class Utilisateurs
         return $this;
     }
 
-    public function getPswd(): ?string
+    public function getPassword(): ?string
     {
-        return $this->pswd;
+        return $this->Password;
     }
 
-    public function setPswd(string $pswd): self
+    public function setPassword(string $Password): self
     {
-        $this->pswd = $pswd;
+        $this->Password = $Password;
 
         return $this;
     }
+
+    public function getUserIdentifier(): string
+    {
+        return (string) $this->mail;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
+
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
 }
