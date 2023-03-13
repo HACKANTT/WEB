@@ -16,8 +16,6 @@ class HomeController extends AbstractController
     public function home(AuthenticationUtils $authenticationUtils, ManagerRegistry $doctrine): Response
     {
         $hackathons = $doctrine->getRepository(Hackatons::class)->findAll();
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
 
         return $this->render('home/home.html.twig', [
             'hackathons' => $hackathons,
