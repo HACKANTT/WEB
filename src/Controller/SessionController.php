@@ -44,6 +44,11 @@ class SessionController extends AbstractController
          // last username entered by the user
          $lastUsername = $authenticationUtils->getLastUsername();
 
+         //si il y a une erreur on fait une flash_error "danger"
+            if ($error){
+                $this->addFlash('danger','Identifiants incorrects');
+            }
+
          //on redirige vers le path app_home
         return $this->redirectToRoute('app_home',[
              'last_username' => $lastUsername,
