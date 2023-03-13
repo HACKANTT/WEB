@@ -33,72 +33,113 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
 	</head>
 	<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="57">
-			<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
-				<div class="container">
-					<a class="navbar-brand" data-aos="zoom-in-down" data-aos-once="true" href="#page-top">Hackat'WEB</a>
-					<button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="border-style: none;">
-						<svg
-							xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" width="1em" height="1em" fill="currentColor">
-							<!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
-							<path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM64 256C64 238.3 78.33 224 96 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H96C78.33 288 64 273.7 64 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"></path>
-						</svg>
-					</button>
-					<div class="collapse navbar-collapse" id="navbarResponsive">
-						<ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center">
-							<li class="nav-item">
-								<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="50" data-aos-once="true" href="#apropos">A propos</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="100" data-aos-once="true" href="#service">Service</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="150" data-aos-once="true" href="#hackathons">Hackathons</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="200" data-aos-once="true" href="#galerie">Galerie</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="250" data-aos-once="true" href="#contact">Contact</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link border rounded-pill border-2 d-flex justify-content-center justify-content-sm-center align-items-sm-center align-items-xxl-center" data-aos="zoom-in-down" data-aos-delay="300" data-aos-once="true" id="btnConnexion" href="/connexion.php" data-bs-target="#connexionModal" data-bs-toggle="modal">
-									<svg
-										xmlns="http://www.w3.org/2000/svg" viewbox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-5" style="margin-right: 8px;">
-										<!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
-										<path d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z"></path>
-									</svg>
-									<p id="username" style="margin-bottom: 0px;padding-bottom: 0px;">CONNEXION</p>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-			<div class="modal fade" role="dialog" tabindex="-1" id="connexionModal">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header d-xxl-flex align-items-xxl-start">
-							<h2>Se connecter</h2>
-							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-						</div>
-						<div class="modal-body d-flex d-xxl-flex flex-column justify-content-xxl-center align-items-center">
-							<div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="background: var(--bs-primary);">
-								<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-person">
-									<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+		<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
+			<div class="container">
+				<a class="navbar-brand" data-aos="zoom-in-down" data-aos-once="true" href="{{path('app_home')}}#page-top">Hackat'WEB</a>
+				<button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="border-style: none;">
+					<svg
+						xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" width="1em" height="1em" fill="currentColor">
+						<!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+						<path d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM64 256C64 238.3 78.33 224 96 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H96C78.33 288 64 273.7 64 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"></path>
+					</svg>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center">
+						<li class="nav-item">
+							<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="50" data-aos-once="true" href="{{path('app_home')}}#apropos">A propos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="100" data-aos-once="true" href="{{path('app_home')}}#service">Service</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="150" data-aos-once="true" href="{{path('app_home')}}#hackathons">Hackathons</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="200" data-aos-once="true" href="{{path('app_home')}}#galerie">Galerie</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="250" data-aos-once="true" href="{{path('app_home')}}#contact">Contact</a>
+						</li>
+						{# si l'utilisateur est connecté on affiche un item, sinon on affiche un autre item #}
+						{% if app.user %}
+						<li class="nav-item">
+							<a class="nav-link border rounded-pill border-2 d-flex justify-content-center justify-content-sm-center align-items-sm-center align-items-xxl-center" data-aos="zoom-in-down" data-aos-delay="300" data-aos-once="true" href="{{path('app_logout')}}">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-5" style="margin-right: 8px;"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+							Déconnexion</a>
+						</li>
+						{% else %}
+						<li class="nav-item">
+							<a class="nav-link border rounded-pill border-2 d-flex justify-content-center justify-content-sm-center align-items-sm-center align-items-xxl-center" data-aos="zoom-in-down" data-aos-delay="300" data-aos-once="true" id="btnConnexion" href="/connexion.php" data-bs-target="#connexionModal" data-bs-toggle="modal">
+								<svg
+									xmlns="http://www.w3.org/2000/svg" viewbox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-5" style="margin-right: 8px;">
+									<!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
+									<path d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89 80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z"></path>
 								</svg>
-							</div>
-							<form class="text-center" method="post" style="font-family: ABeeZee, sans-serif;min-width: 50%;" action="/connexion.php">
-								<div class="mb-3"><input class="form-control" type="email" name="login" placeholder="Utilisateur"></div>
-								<div class="mb-3"><input class="form-control" type="password" name="mdp" placeholder="Mot de passe" style="font-family: ABeeZee, sans-serif;"></div>
-								<div class="mb-3">
-									<button class="btn btn-primary d-block w-100" type="submit" style="background: var(--bs-primary);">CONNEXION&nbsp;</button>
-								</div>
-								<p class="text-muted" style="font-family: ABeeZee, sans-serif;">Mot de passe oublié ?</p>
-							</form>
+								<p id="username" style="margin-bottom: 0px;padding-bottom: 0px;">CONNEXION</p>
+							</a>
+						</li>
+						{% for flash_error in app.flashes('danger') %}
+							<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+						{% endfor %}
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<div class="modal fade" role="dialog" tabindex="-1" id="connexionModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header d-xxl-flex align-items-xxl-start">
+						<h2>Se connecter</h2>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body d-flex d-xxl-flex flex-column justify-content-xxl-center align-items-center">
+						<div class="bs-icon-xl bs-icon-circle bs-icon-primary bs-icon my-4" style="background: var(--bs-primary);">
+							<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewbox="0 0 16 16" class="bi bi-person">
+								<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
+							</svg>
 						</div>
+						<form class="user" action="{{ path('app_login') }}" method="post">
+							<div class="mb-3">
+								<input class="form-control form-control-user" type="email" id="email" aria-describedby="emailHelp" placeholder="Entrez votre adresse e-mail..." name="_username">
+							</div>
+							<div class="mb-3">
+								<input class="form-control form-control-user" type="password" id="password" placeholder="Et votre mot de passe..." name="_password">
+							</div>
+							<div class="mb-3">
+								<div class="custom-control custom-checkbox small">
+									<div class="form-check">
+										<input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1">
+										<label class="form-check-label custom-control-label" for="formCheck-1">Se souvenir de moi</label>
+									</div>
+								</div>
+							</div>
+
+							{# If you want to control the URL the user is redirected to on success
+																			<input type="hidden" name="_target_path" value="/account"> #}
+
+							<button class="btn btn-primary d-block btn-user w-100" type="submit" style="background: var(--bs-primary);border-style: none;">C'est parti !</button>
+							<hr>
+							<p class="text-muted" style="font-family: ABeeZee, sans-serif;" action="inscription.php">
+								<a href="{{path('app_inscription')}}">Pas de compte ? Inscription</a>
+							</p>
+						</form>
+						{#<form class="text-center" method="post" style="font-family: ABeeZee, sans-serif;min-width: 50%;" action="/connexion.php">
+							<div class="mb-3"><input class="form-control" type="email" name="login" placeholder="Utilisateur"></div>
+							<div class="mb-3"><input class="form-control" type="password" name="mdp" placeholder="Mot de passe" style="font-family: ABeeZee, sans-serif;"></div>
+							<div class="mb-3">
+								<button class="btn btn-primary d-block w-100" type="submit" style="background: var(--bs-primary);">CONNEXION&nbsp;</button>
+							</div>
+							<p class="text-muted" style="font-family: ABeeZee, sans-serif;">Mot de passe oublié ?</p>
+							<p class="text-muted" style="font-family: ABeeZee, sans-serif;" action="inscription.php">
+								<a href="{{path('app_inscription')}}">Pas de compte ? Inscription</a>
+							</p>
+						</form>#}
 					</div>
 				</div>
 			</div>
-{% block body %}
-{% endblock %}
-{% include "b_footer.html.twig" %}
+		</div>
+		{% block body %}{% endblock %}
+		{% include "b_footer.html.twig" %}
+	</body>
+</html>

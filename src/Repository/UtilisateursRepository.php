@@ -29,6 +29,7 @@ class UtilisateursRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
+    
 
     public function remove(Utilisateurs $entity, bool $flush = false): void
     {

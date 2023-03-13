@@ -6,7 +6,7 @@
 {% block body %}
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 	<header class="text-center text-white d-flex masthead" data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="1" style="
-																		            background-image:url({{ asset('img/header.jpg?h=d64d3b1204b99281a7156bbd48871756')}}); ">
+																											            background-image:url({{ asset('img/header.jpg?h=d64d3b1204b99281a7156bbd48871756')}}); ">
 		<div class="container my-auto">
 			<div class="row">
 				<div class="col-lg-10 mx-auto">
@@ -21,8 +21,8 @@
 			<div class="col-lg-8 mx-auto">
 				<p class="fs-5 text-faded mb-5" data-aos="fade-down" data-aos-delay="100" style="font-family: ABeeZee, sans-serif;">
 					<span style="color: rgb(195, 190, 182); background-color: var(--green-100);">Les hackathons sont des événements où
-																																						            les participants sont invités à résoudre des problèmes en utilisant des technologies de
-																																						            l'informatique.</span><br></p>
+																							les participants sont invités à résoudre des problèmes en utilisant des technologies de
+																							l'informatique.</span><br></p>
 				<a class="btn btn-primary btn-xl" role="button" href="#service" style="background: var(--bs-primary);">EXPLORER NOS HACKATHONS<br></a>
 				<center>
 					<div>
@@ -41,14 +41,14 @@
 					</h2>
 					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="light my-4">
 					<p class="fs-5 text-faded mb-4" style="font-family: ABeeZee, sans-serif;filter: blur(0px);backdrop-filter: blur(0px);margin-top: 30px;">Nous
-																																						            avons pour but de simplifier&nbsp;la gestion de l'organisation&nbsp;de hackathons. Pour cela plusieurs
-																																						            applications&nbsp;sont en cours de développement, dont celle que vous consultez en ce moment
-																																						            même.<br><br><br>Hackat'Agence, c'est une plateforme web, mais aussi une&nbsp;application mobile
+																							avons pour but de simplifier&nbsp;la gestion de l'organisation&nbsp;de hackathons. Pour cela plusieurs
+																							applications&nbsp;sont en cours de développement, dont celle que vous consultez en ce moment
+																							même.<br><br><br>Hackat'Agence, c'est une plateforme web, mais aussi une&nbsp;application mobile
 						<br>qui
-																																						            permet aux participants de suivre toutes les activités annexes des hackathons.<br>Enfin, c'est aussi une
-																																						            application bureau, pour simplifier le travail des organisateurs en coordonnant les différentes
-																																						            opérations.<br><br><br>L'entreprise a été créée en 2022 par trois entrepreneurs français, Théo Proutière,
-																																						            Nikolas Loizeau, et Théo Palestro.<br><br></p>
+																							permet aux participants de suivre toutes les activités annexes des hackathons.<br>Enfin, c'est aussi une
+																							application bureau, pour simplifier le travail des organisateurs en coordonnant les différentes
+																							opérations.<br><br><br>L'entreprise a été créée en 2022 par trois entrepreneurs français, Théo Proutière,
+																							Nikolas Loizeau, et Théo Palestro.<br><br></p>
 					<a class="btn btn-light btn-xl" role="button" href="#service">plus de DÉTAILs</a>
 				</div>
 			</div>
@@ -74,8 +74,8 @@
 						</svg>
 						<h3 class="text-center mb-3">Des Hackathons réguliers</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Permettent aux participants
-																																											              de développer leurs compétences et de se familiariser avec les outils et différentes
-																																											              technologies/outils.<br></p>
+																																																																              de développer leurs compétences et de se familiariser avec les outils et différentes
+																																																																              technologies/outils.<br></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 text-center">
@@ -87,7 +87,7 @@
 						</svg>
 						<h3 class="mb-3">Intervenants de renommée&nbsp;</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Apportent leur expertise et
-																																											              leur savoir-faire aux participants, ce qui leur permet d'améliorer leurs propres compétences.<br></p>
+																																																																              leur savoir-faire aux participants, ce qui leur permet d'améliorer leurs propres compétences.<br></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 text-center">
@@ -99,7 +99,7 @@
 						</svg>
 						<h3 class="mb-3">Ateliers d'initiation pour les débutants</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Contribue à apprendre les
-																																											              bases nécessaires pour se lancer dans différents projet et permettent de progresser rapidement</p>
+																																																																              bases nécessaires pour se lancer dans différents projet et permettent de progresser rapidement</p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 offset-xxl-0 text-center">
@@ -111,7 +111,7 @@
 						</svg>
 						<h3 class="mb-3">Conférences sur divers sujets</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Permet d'en apprendre
-																																											              davantage sur les différents aspects du développement et de se tenir au courant des dernières tendances.
+																																																																              davantage sur les différents aspects du développement et de se tenir au courant des dernières tendances.
 						</p>
 					</div>
 				</div>
@@ -119,56 +119,132 @@
 		</div>
 	</section>
 	<section id="hackathons" class="p-0">
-		<div class="container-fluid p-0">
-			<div class="row g-0 popup-gallery">
-				{% for hackathon in hackathons %}
-					<div class="col-sm-6 col-lg-4">
-						<a class="portfolio-box" data-id="{{hackathon.id}}" style="height: 100%;"><img class="img-fluid" style="height: 100%;object-fit: cover;" src={{hackathon.image}}>
-							<div class="portfolio-box-caption" style="background: var(--bs-primary);">
-								<div class="portfolio-box-caption-content">
-									<div id="hackaNameDiv" class="project-category text-faded">
-										<span id="hackaName" style="font-family: 'Open Sans', sans-serif;">{{hackathon.theme}}</span>
+		<!-- recherche ajax interactive
+								<script>
+									function showResult(str) {
+						if (str.length == 0) {
+						document.getElementById("livesearch").innerHTML = "";
+						document.getElementById("livesearch").style.border = "0px";
+						return;
+						}
+						var xmlhttp = new XMLHttpRequest();
+						xmlhttp.onreadystatechange = function () {
+						if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("livesearch").innerHTML = this.responseText;
+						document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+						}
+						}
+						xmlhttp.open("GET", "http://127.0.0.1:8001/api/recherche/" + str, true);
+						xmlhttp.send();
+						}
+								</script>
+						
+								<form style="display:flex ; justify-content: flex-end">
+									<input type="text" size="30" onkeyup="showResult(this.value)" placeholder="Rechercher la ville d'un hackathon">
+									<div id="livesearch"></div>
+								</form>-->
+<script>
+	function recherche() {
+		var input,
+		filter,
+		table,
+		div,
+		span,
+		i,
+		txtValue;
+		input = document.getElementById("myInput");
+		filter = input.value.toUpperCase();
+		table = document.getElementById("table_hackat");
+		div = table.getElementsByTagName("div");
+		for (i = 0; i < div.length; i++) {
+		span = div[i].getElementsByTagName("span")[0];
+		if (span) {
+		txtValue = span.textContent || span.innerText;
+		if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		div[i].style.display = "";
+		} else {
+		div[i].style.display = "none";
+		}
+		}
+		}
+		}
+</script>
+<!--- <div id="recherche" class="container-fluid p-0" style="display:flex ; justify-content: flex-end">
+	<input type="text" id="search" placeholder="Rechercher un hackathon" style="width: 25%;height: 50px;border: none;border-radius: 0px;color: var(--bs-light);font-size: 20px;">
+	<a class="btn btn-light btn-xl" role="button" href="#hackathons">rechercher</a>
+</div>-->
+		<div class="container-fluid p-0" style="max-width: 1950px;">
+			<div class="row g-0 justify-content-between">
+				<div class="col text-center mx-auto">
+					<h2 class="section-heading">Nos hackathons</h2>
+					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4 aos-init aos-animate" style="/* border-color: var(--bs-primary); */">
+					<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Parcourez nos hackathons du moment ou recherchez votre ville !
+						<br>Et pour plus d'informations sur un hackathon, on clique dessus ! 😉</p>
+				</div>
+				<div class="col text-center mx-auto" style="display: flex;align-items: center;justify-content: flex-end;">
+					<input class="form-control" type="text" id="myInput" onkeyup="recherche()" placeholder="Rechercher une ville :" title="Type in a name" style="background-image: url(https://www.w3schools.com/css/searchicon.png);background-position: 10px 15px;background-repeat: no-repeat;width: 560px;padding: 12px 20px 12px 40px;border: 1px solid #ddd;margin: 50px;border-radius: 50px;font-family: Open Sans,Helvetica Neue,Arial,sans-serif;">
+				</div>
+			</div>
+			<div style="display:flex;justify-content: center;">
+				<div id="table_hackat" class="row g-0 popup-gallery" style="width:1950px">
+					{% for hackathon in hackathons %}
+						<div class="col-sm-6 col-lg-4">
+							<a class="portfolio-box" data-id="{{hackathon.id}}" style="height: 100%;"><img class="img-fluid" style="height: 100%;object-fit: cover;" src={{hackathon.image}}>
+								<div class="portfolio-box-caption" style="background: var(--bs-primary);">
+									<div id="hackaVilleDiv" class="project-name" style="text-align:end;margin:20px;">
+										<span id="hackatVille" style="font-family: 'Open Sans', sans-serif;background: aliceblue;padding: 5px 15px 5px 15px;border-radius: 30px;color: var(--bs-blue);">
+											<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewbox="0 0 16 16">
+												<path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+											</svg>
+											{{hackathon.ville}}</span>
 									</div>
-									<div id="hackaDetailDiv" class="project-name">
-										<span id="hackaDetail" style="font-family: 'Open Sans', sans-serif;">{{hackathon.description}}</span>
+									<div class="portfolio-box-caption-content">
+										<div id="hackaNameDiv" class="project-category text-faded">
+											<span id="hackaName" style="font-family: 'Open Sans', sans-serif;">{{hackathon.theme}}</span>
+										</div>
+										<div id="hackaDetailDiv" class="project-name">
+											<span id="hackaDetail" style="font-family: 'Open Sans', sans-serif;">{{hackathon.description}}</span>
+										</div>
 									</div>
 								</div>
-							</div>
-						</a>
-					</div>
-					<!-- Modal -->
-					<div id="myModal" class="modal fade" role="dialog">
-						<div
-							class="modal-dialog">
-							<!-- Modal content-->
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title">Informations sur ce hackathon</h4>
-								</div>
-								<div class="modal-body" style="font-family:Open Sans,Helvetica Neue,Arial,sans-serif !important">
-									<p>Aucune information à afficher.</p>
-									
-								</div>
-								<div class="modal-footer">
-									<a type="button" class="btn btn-primary" href="http://127.0.0.1:8001/inscription/{{hackathon.id}}">S'inscrire</a>
-									<button type="button" class="btn btn-secondary">Se connecter</button>
-									<button type="button" class="btn btn-default" data-bs-dismiss="modal">Fermer</button>
+							</a>
+						</div>
+						<!-- Modal -->
+						<div id="myModal" class="modal fade" role="dialog">
+							<div
+								class="modal-dialog modal-lg">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Informations sur ce hackathon</h4>
+									</div>
+									<div class="modal-body" style="display: flex;font-family:Open Sans,Helvetica Neue,Arial,sans-serif !important;flex-direction: column;">
+										<p>Aucune information à afficher.</p>
+
+									</div>
+									<div class="modal-footer">
+										{% if app.user %}
+										<a type="button" class="btn btn-primary btn-lg" href="http://127.0.0.1:8001/inscription/{{hackathon.id}}">Rejoindre ce hackathon</a>
+										{% else %}
+										<button type="button " class="btn btn-secondary btn-lg" href="/connexion.php" data-bs-target="#connexionModal" data-bs-toggle="modal">Veuillez vous connecter pour rejoindre ce hackathon</button>
+										{% endif %}
+										<button type="button" class="btn btn-default btn-lg" data-bs-dismiss="modal">Fermer</button>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				{% endfor %}
-				<script>
-					(function ($) {
+					{% endfor %}
+					<script>
+						(function ($) {
 var infoModal = $('#myModal');
 $('.portfolio-box').on('click', function () {
 $.ajax({
 type: "GET",
-url: 'http://127.0.0.1:8001/api/hackathons/' + $(this).data('id'),
+url: '/api/hackathons/' + $(this).data('id'),
 dataType: 'json',
 success: function (data) {
 console.log(data);
-htmlData = '<img src="' + data.image + '" class="img-fluid" alt="image du hackathon"><br><br><h4> ' + data.theme + '</h4><br><ul><li><strong>Description:</strong> ' + data.description + '</li><li><strong>Lieu:</strong> ' + data.lieu + ', ' + data.rue + ' à ' + data.ville + ' - ' + data.cp + '<iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBBsM0iiWw3EHaTaHnRYtYPWq5GeBEM2pE&amp;q='+data.lieu+','+ data.rue+','+data.ville+'&amp;zoom=8" loading="lazy" width="100%" height="300"></iframe><br></li><li><strong>Date limite d\'inscription:</strong> ' + data.dateLimite.date + '</li><li><strong>Nombre de places restantes:</strong> ' + data.nbPlaces + '</li></ul>';
+htmlData = '<img src="' + data.image + '" class="img-fluid" alt="image du hackathon"><br><br><h4> ' + data.theme + '</h4><br><ul><li><strong>Description:</strong> ' + data.description + '</li><li><strong>Lieu:</strong> ' + data.lieu + ', ' + data.rue + ' à ' + data.ville + ' - ' + data.cp + '<iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBBsM0iiWw3EHaTaHnRYtYPWq5GeBEM2pE&amp;q=' + data.lieu + ',' + data.rue + ',' + data.ville + '&amp;zoom=8" loading="lazy" width="100%" height="300"></iframe><br></li><li><strong>Date limite d\'inscription:</strong> ' + data.dateLimite.date + '</li><li><strong>Nombre de places restantes:</strong> ' + data.nbPlaces + '</li></ul>';
 infoModal.find('.modal-body').html(htmlData);
 infoModal.modal('show');
 }
@@ -177,11 +253,13 @@ infoModal.modal('show');
 return false;
 });
 })(jQuery);
-</script>
+					</script>
+				</div>
 			</div>
 		</div>
+
 	</section>
-	<section class="text-white bg-dark" data-bss-parallax-bg="true" id="galerie" style="background: url(&quot;{{ asset('img/modern-futuristic-sci-fi-background.jpg?h=08e165ee798ccf77db5c697f0861355a&quot;);background-size: auto;') }}">
+	<section class="text-white" id="galerie" style="border-radius: 0 0 20px 20px;background: rgb(7,106,224,1);background: linear-gradient(180deg, rgba(0,62,136,1) 0%, rgba(7,106,224,1) 100%);">
 		<div class="container text-center">
 			<h2 data-aos="fade" data-aos-once="true" class="mb-4">Quelques photos de nos hackathons</h2>
 			<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="light my-4">
@@ -225,8 +303,10 @@ return false;
 				<div class="col-lg-8 text-center mx-auto">
 					<h2 class="section-heading">Contactez-nous !</h2>
 					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="my-4" style="border-color: var(--bs-primary);">
-					<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Prêt à participer à nos hackathons ? C'est génial !
-						<br>Appelez-nous ou envoyez-nous un courriel et nous vous répondrons dans les plus brefs délais !</p>
+					<p class="mb-5" style="font-family: ABeeZee, sans-serif;">Prêt à participer à nos hackathons ? C'est super !
+						<br>Vous avez des questions ? C'est normal !
+						<br/>
+						<br>Appelez-nous ou envoyez-nous un courriel et nous vous répondrons dans les plus brefs délais</p>
 				</div>
 			</div>
 			<div class="row d-flex justify-content-center">
@@ -288,4 +368,5 @@ return false;
 				</div>
 			</div>
 		</div>
-	{% endblock %}
+	</section>
+{% endblock %}

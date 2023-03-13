@@ -1,0 +1,54 @@
+{% extends 'b_head.html.twig' %}
+
+{% block title %}S'inscrire
+{% endblock %}
+
+{% block body %}
+<div style="background-color:#076ae0;height:64px">
+</div>
+	<header class="d-flex h-25" data-bss-scroll-zoom="true" data-bss-scroll-zoom-speed="1">
+		<div class="container my-auto">
+		<div class="alert" role="alert">
+			<h1>Je veux m'inscrire 🎉</h1>
+			<br>
+			<p class="mb-0" style="font-family: ABeeZee, sans-serif;"> - Si vous avez déjà un compte, vous pouvez vous connecter
+				<a href=""data-bs-target="#connexionModal" data-bs-toggle="modal">ici</a>.
+				<br> - Sinon, c'est
+				<a href="#compte">juste en dessous !</a>.</p>
+		</div>
+		</div>
+	</header>
+
+<div class="container"style="margin-bottom: 5%;">
+	<br/>
+	<div class="card"id="compte"style="font-family: Open Sans,Helvetica Neue,Arial,sans-serif;">
+		<div class="card-body">
+			<h5 class="card-title">Créons votre compte 👋</h5>
+
+			{{ form_start(form) }}
+			<br/>
+			{{form_row(form.nom) }}
+			<br/>
+			{{ form_row(form.prenom) }}
+			<br/>
+			{{ form_row(form.mail) }}
+			<br/>
+			{{ form_row(form.tel) }}
+			<br/>
+			{{ form_row(form.dateNaissance) }}
+			<br/>
+			{{ form_row(form.lienPortfolio) }}
+			<br/>
+			{{ form_row(form.login) }}
+			<br/>
+			{{ form_row(form.password) }}
+			<br/>
+			<div class="d-grid gap-2">
+			<input class="btn btn-primary btn-lg" type='submit' value="Je m'inscris" name='btnSubmit'>
+			</div>
+
+			{{ form_end(form) }}
+		</div>
+	</div>
+</div>
+{% endblock %}
