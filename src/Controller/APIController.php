@@ -73,6 +73,33 @@ public function detail_hackathon(ManagerRegistry $doctrine, $id): JsonResponse
         ];
         return new JsonResponse($tab);
     }
+
+#[Route('/fav/hackathon/{id}', name: 'app_api_fav_hackathon')]
+public function fav_hackathon($id, ManagerRegistry $doctrine): Response
+{
+        $repository = $doctrine->getRepository(Hackathons::class);
+        $leHackathon = $repository->find($id);
+        try {
+        if(!$leHackathon) {
+            throw $this->createNotFoundException('Le hackathon n a pas ete trouve');}
+        $boolean = $leHackathon->getFavori();
+        if($boolean == 0){
+            $leHackathon->setFavori(1);
+        }
+        else{
+            $leHackathon->setFavori(0);
+        }
+        $em=$doctrine->getManager();
+        $em->persist($leHackathon);
+        $em->flush();
+        return $this->json([$boolean]);
+        }
+        catch(\Exception $e){
+            //on retourne une réponse json avec le code 404
+            return $this->json(['error' => $e->getMessage()], 404);
+        }
+    }
+
 #[Route('/api/utilisateurs', name: 'app_api_utilisateurs')]
 public function utilisateurs(ManagerRegistry $doctrine): JsonResponse
 {

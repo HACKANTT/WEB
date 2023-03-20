@@ -19,7 +19,7 @@ class Inscription
 
     #[ORM\ManyToOne(inversedBy: 'inscriptions')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?hackatons $id_H = null;
+    private ?Hackatons $id_H = null;
 
     #[ORM\ManyToOne(targetEntity: Utilisateurs::Class)]
     #[ORM\JoinColumn(nullable: false)]
@@ -53,12 +53,12 @@ class Inscription
         return $this;
     }
 
-    public function getIdH(): ?hackatons
+    public function getIdH(): ?Hackatons
     {
         return $this->id_H;
     }
 
-    public function setIdH(?hackatons $id_H): self
+    public function setIdH(?Hackatons $id_H): self
     {
         $this->id_H = $id_H;
 
