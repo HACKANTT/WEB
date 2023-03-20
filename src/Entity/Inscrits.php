@@ -23,6 +23,7 @@ class Inscrits
     private ?string $email = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscrits')]
+     #[ORM\JoinColumn(name: 'atelier', referencedColumnName: 'id')]
     private ?Atelier $relationAtelier = null;
 
     public function getId(): ?int
