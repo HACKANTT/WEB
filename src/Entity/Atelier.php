@@ -21,9 +21,13 @@ class Atelier extends Evenements
     #[ORM\OneToMany(mappedBy: 'relationAtelier', targetEntity: Inscrits::class)]
     private Collection $inscrits;
 
+    #[ORM\OneToMany(mappedBy: 'id_A', targetEntity: Avis::class, orphanRemoval: true)]
+    private Collection $avis;
+
     public function __construct()
     {
         $this->inscrits = new ArrayCollection();
+        $this->avis = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -67,6 +71,36 @@ class Atelier extends Evenements
             // set the owning side to null (unless already changed)
             if ($inscrit->getRelationAtelier() === $this) {
                 $inscrit->setRelationAtelier(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Avis>
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): self
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis->add($avi);
+            $avi->setIdA($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): self
+    {
+        if ($this->avis->removeElement($avi)) {
+            // set the owning side to null (unless already changed)
+            if ($avi->getIdA() === $this) {
+                $avi->setIdA(null);
             }
         }
 
