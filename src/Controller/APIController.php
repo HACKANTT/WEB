@@ -77,26 +77,29 @@ public function detail_hackathon(ManagerRegistry $doctrine, $id): JsonResponse
 #[Route('/fav/hackathon/{id}', name: 'app_api_fav_hackathon')]
 public function fav_hackathon($id, ManagerRegistry $doctrine): Response
 {
-        $repository = $doctrine->getRepository(Hackathons::class);
+        $repository = $doctrine->getRepository(Hackatons::class);
         $leHackathon = $repository->find($id);
-        try {
-        if(!$leHackathon) {
-            throw $this->createNotFoundException('Le hackathon n a pas ete trouve');}
-        $boolean = $leHackathon->getFavori();
-        if($boolean == 0){
-            $leHackathon->setFavori(1);
+        //si l'utilisateur n'est pas connecté, on retourne une erreur
+        if (!$this->getUser()) {
+            return $this->json(['error' => 'Vous devez être connecté pour ajouter un hackathon à vos favoris'], 403);
         }
-        else{
-            $leHackathon->setFavori(0);
+        //si dans la table favoris il y a déjà un hakathon avec cet utilisateur, on regarde si le boolean est à 1 ou 0
+        if ($this->getUser()->getHackatons()->contains($leHackathon)) {
+            //si le boolean est à 0, on le passe à 1
+            if ($leHackathon->getFavoris() == 0) {
+                $leHackathon->setFavoris(1);
+                $doctrine->getManager()->flush();
+                return $this->json(['success' => 'Le hackathon a bien été ajouté à vos favoris'], 200);
+            }
+        //si le boolean est à 1, on le passe à 0
+
+
         }
-        $em=$doctrine->getManager();
-        $em->persist($leHackathon);
-        $em->flush();
-        return $this->json([$boolean]);
-        }
-        catch(\Exception $e){
-            //on retourne une réponse json avec le code 404
-            return $this->json(['error' => $e->getMessage()], 404);
+        //si l'utilisateur est connecté, on supprime le hackathon de ses favoris si il l'est déjà
+        if ($this->getUser()->getHackatons()->contains($leHackathon)) {
+            $this->getUser()->removeHackaton($leHackathon);
+            $doctrine->getManager()->flush();
+            return $this->json(['success' => 'Le hackathon a bien été supprimé de vos favoris'], 200);
         }
     }
 

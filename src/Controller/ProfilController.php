@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Favoris;
 use App\Entity\Hackatons;
 use App\Entity\Inscription;
 use Doctrine\Persistence\ManagerRegistry;
@@ -24,7 +25,13 @@ class ProfilController extends AbstractController
     #[Route('/favoris', name: 'app_favoris')]
     public function favoris(ManagerRegistry $doctrine): Response
     {
+        //retourne les hackathons favoris de l'utilisateur
+        $favoris=$doctrine->getRepository(Favoris::class)
+        ->findBy(['id_U' => $this->getUser()]);
+        $hackathonsfavoris=$doctrine->getRepository(Hackatons::class)->findBy(['id' => $favoris]);
         return $this->render('profil/favoris.html.twig', [
+            'hackathons' => $hackathonsfavoris,
+            
         ]);
     }
     #[Route('/inscriptions', name: 'app_inscriptions')]
@@ -33,8 +40,13 @@ class ProfilController extends AbstractController
         //retourne les hackathons auxquels l'utilisateur est inscrit
         $inscriptions=$doctrine->getRepository(Inscription::class)->findBy(['id_U' => $this->getUser()]);
         $hackathonsinscrits=$doctrine->getRepository(Hackatons::class)->findBy(['id' => $inscriptions]);
+        //retourne les hackathons favoris de l'utilisateur
+        $favoris=$doctrine->getRepository(Favoris::class)
+        ->findBy(['id_U' => $this->getUser()]);
+        $hackathonsfavoris=$doctrine->getRepository(Hackatons::class)->findBy(['id' => $favoris]);
         return $this->render('profil/inscriptions.html.twig', [
             'hackathons' => $hackathonsinscrits,
+            'favoris' => $hackathonsfavoris
             
         ]);
     }
