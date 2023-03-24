@@ -21,9 +21,6 @@ class Favoris
     #[ORM\JoinColumn(nullable: false)]
     private ?Hackatons $id_H = null;
 
-    #[ORM\Column]
-    private ?bool $favori = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -49,18 +46,6 @@ class Favoris
     public function setIdH(?Hackatons $id_H): self
     {
         $this->id_H = $id_H;
-
-        return $this;
-    }
-
-    public function isFavori(): ?bool
-    {
-        return $this->favori;
-    }
-
-    public function setFavori(bool $favori): self
-    {
-        $this->favori = $favori;
 
         return $this;
     }

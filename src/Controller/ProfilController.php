@@ -46,8 +46,7 @@ class ProfilController extends AbstractController
         $hackathonsfavoris=$doctrine->getRepository(Hackatons::class)->findBy(['id' => $favoris]);
         return $this->render('profil/inscriptions.html.twig', [
             'hackathons' => $hackathonsinscrits,
-            'favoris' => $hackathonsfavoris
-            
+            'favoris' => $hackathonsfavoris,
         ]);
     }
 }

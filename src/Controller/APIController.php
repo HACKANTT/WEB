@@ -3,8 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Evenements;
+use App\Entity\Favoris;
 use App\Entity\Hackatons;
 use App\Entity\Utilisateurs;
+use Doctrine\ORM\Mapping\Id;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -79,29 +81,30 @@ public function fav_hackathon($id, ManagerRegistry $doctrine): Response
 {
         $repository = $doctrine->getRepository(Hackatons::class);
         $leHackathon = $repository->find($id);
+        $user=$this->getUser();
+        $favoris = $user->getFavoris();
+        
         //si l'utilisateur n'est pas connecté, on retourne une erreur
-        if (!$this->getUser()) {
+        if (!$user) {
             return $this->json(['error' => 'Vous devez être connecté pour ajouter un hackathon à vos favoris'], 403);
         }
-        //si dans la table favoris il y a déjà un hakathon avec cet utilisateur, on regarde si le boolean est à 1 ou 0
-        if ($this->getUser()->getHackatons()->contains($leHackathon)) {
-            //si le boolean est à 0, on le passe à 1
-            if ($leHackathon->getFavoris() == 0) {
-                $leHackathon->setFavoris(1);
-                $doctrine->getManager()->flush();
-                return $this->json(['success' => 'Le hackathon a bien été ajouté à vos favoris'], 200);
-            }
-        //si le boolean est à 1, on le passe à 0
-
-
-        }
-        //si l'utilisateur est connecté, on supprime le hackathon de ses favoris si il l'est déjà
-        if ($this->getUser()->getHackatons()->contains($leHackathon)) {
-            $this->getUser()->removeHackaton($leHackathon);
+        //si ce hackathon est déjà dans les favoris de l'utilisateur, on supprime cette ligne
+        if ($favoris->contains($leHackathon)) {
+            $favoris->removeElement($leHackathon);
             $doctrine->getManager()->flush();
             return $this->json(['success' => 'Le hackathon a bien été supprimé de vos favoris'], 200);
         }
-    }
+        //si l'utilisateur est connecté, on ajoute le hackathon à ses favoris
+        //dump user id
+        $favoris = new Favoris();
+        $favoris->setIdH($leHackathon);
+        $favoris->setIdU($user);
+        $doctrine->getManager()->persist($favoris);
+        $doctrine->getManager()->flush();
+        return $this->json(['success' => 'Le hackathon a bien été ajouté à vos favoris'], 200);
+
+        }
+
 
 #[Route('/api/utilisateurs', name: 'app_api_utilisateurs')]
 public function utilisateurs(ManagerRegistry $doctrine): JsonResponse
