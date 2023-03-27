@@ -83,27 +83,30 @@ public function fav_hackathon($id, ManagerRegistry $doctrine): Response
         $leHackathon = $repository->find($id);
         $user=$this->getUser();
         $favoris = $user->getFavoris();
-        
         //si l'utilisateur n'est pas connecté, on retourne une erreur
         if (!$user) {
             return $this->json(['error' => 'Vous devez être connecté pour ajouter un hackathon à vos favoris'], 403);
         }
-        //si ce hackathon est déjà dans les favoris de l'utilisateur, on supprime cette ligne
-        if ($favoris->contains($leHackathon)) {
-            $favoris->removeElement($leHackathon);
-            $doctrine->getManager()->flush();
-            return $this->json(['success' => 'Le hackathon a bien été supprimé de vos favoris'], 200);
+        //si il existe un favori qui a le même idH et idU que ceux-la, on supprime cette ligne
+        foreach
+        ($favoris as $favori) {
+            if ($favori->getIdH() == $leHackathon && $favori->getIdU() == $user) {
+                $doctrine->getManager()->remove($favori);
+                $doctrine->getManager()->flush();
+                return $this->json(['success' => '0'], 200);
+            }
         }
         //si l'utilisateur est connecté, on ajoute le hackathon à ses favoris
-        //dump user id
+        dump($leHackathon);
+        dump($user);
         $favoris = new Favoris();
         $favoris->setIdH($leHackathon);
         $favoris->setIdU($user);
         $doctrine->getManager()->persist($favoris);
         $doctrine->getManager()->flush();
-        return $this->json(['success' => 'Le hackathon a bien été ajouté à vos favoris'], 200);
+        return $this->json(['success' => '1'], 200);
 
-        }
+}
 
 
 #[Route('/api/utilisateurs', name: 'app_api_utilisateurs')]

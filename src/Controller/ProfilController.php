@@ -22,19 +22,18 @@ class ProfilController extends AbstractController
             'user' => $user,
         ]);
     }
-    #[Route('/favoris', name: 'app_favoris')]
+    #[Route('/profil/favoris', name: 'app_favoris')]
     public function favoris(ManagerRegistry $doctrine): Response
     {
         //retourne les hackathons favoris de l'utilisateur
         $favoris=$doctrine->getRepository(Favoris::class)
         ->findBy(['id_U' => $this->getUser()]);
-        $hackathonsfavoris=$doctrine->getRepository(Hackatons::class)->findBy(['id' => $favoris]);
+        dump($favoris);
         return $this->render('profil/favoris.html.twig', [
-            'hackathons' => $hackathonsfavoris,
-            
+            'favoris' => $favoris,
         ]);
     }
-    #[Route('/inscriptions', name: 'app_inscriptions')]
+    #[Route('/profil/inscriptions', name: 'app_inscriptions')]
     public function inscriptions(ManagerRegistry $doctrine): Response
     {
         //retourne les hackathons auxquels l'utilisateur est inscrit
