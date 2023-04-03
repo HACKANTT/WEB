@@ -15,6 +15,16 @@
 							<span style="text-decoration: underline;">vous</span>
 						</strong>
 					</h1>
+					{% for message in app.flashes('success') %}
+						<div class="alert alert-success">
+							{{ message }}
+						</div>
+					{% endfor %}
+					{% for message in app.flashes('danger') %}
+						<div class="alert alert-danger">
+							{{ message }}
+						</div>
+					{% endfor %}
 					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="400" style="border-color: var(--bs-primary);">
 				</div>
 			</div>

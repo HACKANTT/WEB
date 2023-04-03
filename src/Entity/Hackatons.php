@@ -11,6 +11,12 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: HackatonsRepository::class)]
 class Hackatons
 {
+    // C'est la classe principale de l'entité hackaton.
+    // Elle contient tous les attributs et getters/setters.
+    // Elle contient aussi le mapping entre l'entité hackaton et la base de données.
+    // Ce code est utilisé pour créer la base de données, et pour y faire des requêtes.
+    // Le code est dans le fichier Hackaton.php.
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -57,9 +63,15 @@ class Hackatons
 
     #[ORM\OneToMany(mappedBy: 'id_H', targetEntity: Inscription::class)]
     private Collection $inscriptions;
-
+    //On a ici une collection d'inscriptions :
+    //un hackaton peut avoir plusieurs inscriptions
+    //une inscription ne peut avoir qu'un seul hackaton
+    
     #[ORM\OneToMany(mappedBy: 'hackaton', targetEntity: Evenements::class, orphanRemoval: true)]
     private Collection $evenements;
+    //On a ici une collection d'evenements :
+    //un hackaton peut avoir plusieurs evenements
+    //un evenement ne peut avoir qu'un seul hackaton
 
 
     public function __construct()

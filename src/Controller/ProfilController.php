@@ -36,16 +36,12 @@ class ProfilController extends AbstractController
     #[Route('/profil/inscriptions', name: 'app_inscriptions')]
     public function inscriptions(ManagerRegistry $doctrine): Response
     {
-        //retourne les hackathons auxquels l'utilisateur est inscrit
-        $inscriptions=$doctrine->getRepository(Inscription::class)->findBy(['id_U' => $this->getUser()]);
-        $hackathonsinscrits=$doctrine->getRepository(Hackatons::class)->findBy(['id' => $inscriptions]);
         //retourne les hackathons favoris de l'utilisateur
-        $favoris=$doctrine->getRepository(Favoris::class)
+        $inscriptions=$doctrine->getRepository(Inscription::class)
         ->findBy(['id_U' => $this->getUser()]);
-        $hackathonsfavoris=$doctrine->getRepository(Hackatons::class)->findBy(['id' => $favoris]);
+        dump($inscriptions);
         return $this->render('profil/inscriptions.html.twig', [
-            'hackathons' => $hackathonsinscrits,
-            'favoris' => $hackathonsfavoris,
+            'hackathons' => $inscriptions,
         ]);
     }
 }

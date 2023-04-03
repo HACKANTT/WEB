@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AtelierRepository::class)]
 class Atelier extends Evenements
+//Atlier est une classe enfant de Evenements
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -20,9 +21,16 @@ class Atelier extends Evenements
 
     #[ORM\OneToMany(mappedBy: 'relationAtelier', targetEntity: Inscrits::class)]
     private Collection $inscrits;
+    //On a une collection d'inscrits
+    //un atelier peut avoir plusieurs inscrits
+    //un inscrit ne peut avoir qu'un seul atelier
+
 
     #[ORM\OneToMany(mappedBy: 'id_A', targetEntity: Avis::class, orphanRemoval: true)]
     private Collection $avis;
+    //On a une collection d'avis
+    //un atelier peut avoir plusieurs avis
+    //un avis ne peut avoir qu'un seul atelier
 
     public function __construct()
     {

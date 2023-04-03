@@ -46,7 +46,7 @@ class SessionController extends AbstractController
 
          //si il y a une erreur on fait une flash_error "danger"
             if ($error){
-                $this->addFlash('danger','Identifiants incorrects');
+                $this->addFlash('dangerSession','Identifiants incorrects');
             }
 
          //on redirige vers le path app_home
