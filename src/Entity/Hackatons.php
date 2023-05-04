@@ -66,8 +66,8 @@ class Hackatons
     //On a ici une collection d'inscriptions :
     //un hackaton peut avoir plusieurs inscriptions
     //une inscription ne peut avoir qu'un seul hackaton
-    
-    #[ORM\OneToMany(mappedBy: 'hackaton', targetEntity: Evenements::class, orphanRemoval: true)]
+
+    #[ORM\OneToMany(mappedBy: 'hackathon', targetEntity: Evenements::class, orphanRemoval: true)]
     private Collection $evenements;
     //On a ici une collection d'evenements :
     //un hackaton peut avoir plusieurs evenements
@@ -241,25 +241,19 @@ class Hackatons
         return $this;
     }
 
-
-
-    public function getEvenements(): ?Evenements
+    /**
+     * @return Collection<int, Evenements>
+     */
+    public function getEvenements(): Collection
     {
         return $this->evenements;
-    }
-
-    public function setEvenements(?Evenements $evenements): self
-    {
-        $this->evenements = $evenements;
-
-        return $this;
     }
 
     public function addEvenement(Evenements $evenement): self
     {
         if (!$this->evenements->contains($evenement)) {
             $this->evenements->add($evenement);
-            $evenement->setHackaton($this);
+            $evenement->setHackathon($this);
         }
 
         return $this;
@@ -269,12 +263,13 @@ class Hackatons
     {
         if ($this->evenements->removeElement($evenement)) {
             // set the owning side to null (unless already changed)
-            if ($evenement->getHackaton() === $this) {
-                $evenement->setHackaton(null);
+            if ($evenement->getHackathon() === $this) {
+                $evenement->setHackathon(null);
             }
         }
 
         return $this;
     }
+
 
 }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Atelier;
 use App\Entity\Evenements;
 use App\Entity\Favoris;
 use App\Entity\Hackatons;
@@ -281,7 +282,32 @@ class APIController extends AbstractController
                 'heure' => $unevenement->getHeure(),
                 'duree' => $unevenement->getDuree(),
                 'salle' => $unevenement->getSalle(),
-                'hackathon_id' => $unevenement->getHackaton(),
+                'type' =>
+                //on retourne un type Atelier ou Conference en fonction de la classe fille ou se trouve l'évenement
+                $unevenement instanceof Atelier ? 'atelier' : 'conference',
+                'hackathon_id' => $unevenement->getHackathon(),
+
+            ];
+        }
+        return new JsonResponse($tab);
+    }
+    #[Route('/api/evenements/hackathon/{id}', name: 'app_api_evenements_hack')]
+    public function evenements_hack(ManagerRegistry $doctrine, $id): JsonResponse
+    {
+        $evenements = $doctrine->getRepository(Evenements::class)->findBy(['hackathon' => $id]);
+        $tab = [];
+        foreach ($evenements as $unevenement) {
+            $tab[] = [
+                'id' => $unevenement->getId(),
+                'libelle' => $unevenement->getLibelle(),
+                'dateEvent' => $unevenement->getDateEvent(),
+                'heure' => $unevenement->getHeure(),
+                'duree' => $unevenement->getDuree(),
+                'salle' => $unevenement->getSalle(),
+                'type' =>
+                //on retourne un type Atelier ou Conference en fonction de la classe fille ou se trouve l'évenement
+                $unevenement instanceof Atelier ? 'atelier' : 'conference',
+                'hackathon_id' => $unevenement->getHackathon(),
 
             ];
         }

@@ -37,8 +37,7 @@ class Evenements
 
     #[ORM\ManyToOne(inversedBy: 'evenements')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Hackatons $hackaton = null;
-
+    private ?Hackatons $hackathon = null;
 
     public function __construct()
     {
@@ -110,14 +109,14 @@ class Evenements
         return $this;
     }
 
-    public function getHackaton(): ?Hackatons
+    public function getHackathon(): ?Hackatons
     {
-        return $this->hackaton;
+        return $this->hackathon;
     }
 
-    public function setHackaton(?Hackatons $hackaton): self
+    public function setHackathon(?Hackatons $hackathon): self
     {
-        $this->hackaton = $hackaton;
+        $this->hackathon = $hackathon;
 
         return $this;
     }

@@ -21,7 +21,7 @@ class Inscription
     #[ORM\JoinColumn(nullable: false)]
     private ?Hackatons $id_H = null;
 
-    #[ORM\ManyToOne(targetEntity: Utilisateurs::Class)]
+    #[ORM\ManyToOne(targetEntity: Utilisateurs::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Utilisateurs $id_U = null;
 
