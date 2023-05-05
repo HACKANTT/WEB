@@ -11,11 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Atelier extends Evenements
 //Atlier est une classe enfant de Evenements
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
     #[ORM\Column]
     private ?int $nbParticipants = null;
 
@@ -38,10 +33,6 @@ class Atelier extends Evenements
         $this->avis = new ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     public function getNbParticipants(): ?int
     {
