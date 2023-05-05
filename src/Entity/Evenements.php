@@ -36,12 +36,11 @@ class Evenements
     private ?string $salle = null;
 
     #[ORM\ManyToOne(inversedBy: 'evenements')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(name: 'hackathon', nullable: false)]
     private ?Hackatons $hackathon = null;
 
     public function __construct()
     {
-        
     }
 
     public function getId(): ?int

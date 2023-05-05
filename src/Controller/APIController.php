@@ -274,6 +274,7 @@ class APIController extends AbstractController
     {
         $evenements = $doctrine->getRepository(Evenements::class)->findAll();
         $tab = [];
+
         foreach ($evenements as $unevenement) {
             $tab[] = [
                 'id' => $unevenement->getId(),
@@ -285,7 +286,7 @@ class APIController extends AbstractController
                 'type' =>
                 //on retourne un type Atelier ou Conference en fonction de la classe fille ou se trouve l'évenement
                 $unevenement instanceof Atelier ? 'atelier' : 'conference',
-                'hackathon_id' => $unevenement->getHackathon(),
+                'hackathon' => $unevenement->getHackathon()->getId(),
 
             ];
         }
