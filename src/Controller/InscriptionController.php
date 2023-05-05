@@ -19,7 +19,6 @@ class InscriptionController extends AbstractController
     //on fait une fonction qui va inscrire l'utilisateur
     public function inscription(Request $request, ManagerRegistry $doctrine, $id): Response
     {
-
         //on récupère le hackathon correspondant
         $hackathon = $doctrine->getRepository(Hackatons::class)->find($id);
         //on vérifie si le hackathon existe
@@ -59,15 +58,12 @@ class InscriptionController extends AbstractController
                 'Une erreur est survenue'
             );
         }
-
         // on récupère le manager de doctrine 
         /** @var EntityManagerInterface */
         $em =  $doctrine->getManager();
-
         // on persiste et on flush 
         $em->persist($inscription);
         $em->flush();
-
         //on fait une flash message
         //si ca a fonctionné :
         $this->addFlash('success', 'Vous êtes inscrit à ce hackathon');
