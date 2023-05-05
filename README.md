@@ -20,9 +20,9 @@
 <h3 align="center">Hackat'Web</h3>
 
   <p align="center">
-    project_description
+    Application web Symfony permettant de référencer et de s’inscrire à des hackathons par le biais d’un compte personnel.
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explorer »</strong></a>
+    <a href="https://github.com/HACKANTT/"><strong>Explorer »</strong></a>
     <br />
 
   </p>
@@ -35,9 +35,11 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+<div align="center">
 Les hackathons sont des événements où les participants sont invités à résoudre des problèmes en utilisant des technologies de l'informatique.
+</div>
+<img src="/public/img/gallerie/7.jpg" alt="Image" height="300">
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 
 
@@ -47,19 +49,17 @@ Les hackathons sont des événements où les participants sont invités à réso
 
 ### Built With
 
- [![Symfony][symfony.com]][symfony-url]
+ [![Symfony][symfony.com]][symfony-url] [![Bootstrap][Bootstrap.com]][Bootstrap-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
+- [x] De lister des hackathons et de pouvoir les filtrer grâce à une fonction de recherche.
+- [x] Permettre aux utilisateurs d'accéder à leur propre compte personnel en utilisant un système d'authentification.
+- [x] Permettre aux utilisateurs de gérer leurs différentes inscriptions.
+    - [x] Mettre en place la gestion de favoris sur les différents hackathons.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
