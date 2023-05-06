@@ -83,8 +83,10 @@ class APIController extends AbstractController
         $repository = $doctrine->getRepository(Hackatons::class);
         $leHackathon = $repository->find($id);
         $user = $this->getUser();
-        $favoris = $user->getFavoris();
-        //si l'utilisateur n'est pas connecté, on retourne une erreur
+        $favoris = //$user->getFavoris();
+        $doctrine->getRepository(Favoris::class)->findBy([
+            'id_U' => $user,
+        ]);//si l'utilisateur n'est pas connecté, on retourne une erreur
         if (!$user) {
             return $this->json(['error' => 'Vous devez être connecté pour ajouter un hackathon à vos favoris'], 403);
         }
@@ -308,7 +310,7 @@ class APIController extends AbstractController
                 'type' =>
                 //on retourne un type Atelier ou Conference en fonction de la classe fille ou se trouve l'évenement
                 $unevenement instanceof Atelier ? 'atelier' : 'conference',
-                'hackathon_id' => $unevenement->getHackathon(),
+                'hackathon' => $unevenement->getHackathon()->getId(),
 
             ];
         }
@@ -326,7 +328,7 @@ class APIController extends AbstractController
             'heure' => $unevenement->getHeure(),
             'duree' => $unevenement->getDuree(),
             'salle' => $unevenement->getSalle(),
-            'hackathon_id' => $unevenement->getHackaton(),
+            'hackathon' => $unevenement->getHackathon()->getId(),
         ];
         return new JsonResponse($tab);
     }
