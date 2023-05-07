@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Atelier;
+use App\Entity\Conference;
 use App\Entity\Evenements;
 use App\Entity\Favoris;
 use App\Entity\Hackatons;
@@ -35,8 +36,10 @@ class APIController extends AbstractController
         foreach ($hackatons as $unhack) {
             $tab[] = [
                 'id' => $unhack->getId(),
-                'dateDebut' => $unhack->getDateDebut(),
-                'dateFin' => $unhack->getDateFin(),
+                'dateDebut' => 
+                substr($unhack->getDateDebut()->format('d-m-Y H:i:s'), 0, 10),
+                'dateFin' =>
+                substr($unhack->getDateFin()->format('d-m-Y H:i:s'), 0, 10),
                 'description' => $unhack->getDescription(),
                 'image' => $unhack->getImage(),
                 'nbPlaces' => $unhack->getNbPlaces(),
@@ -46,8 +49,10 @@ class APIController extends AbstractController
                 'ville' => $unhack->getVille(),
                 'cp' => $unhack->getCp(),
                 'dateLimite' => $unhack->getDateLimite(),
-                'heureDebut' => $unhack->getHeureDebut(),
-                'heureFin' => $unhack->getHeureFin(),
+                'heureDebut' => 
+                substr($unhack->getHeureDebut()->format('d-m-Y H:i:s'), 11, 8),
+                'heureFin' => 
+                substr($unhack->getHeureFin()->format('d-m-Y H:i:s'), 11, 8),
             ];
         }
         return new JsonResponse($tab);
@@ -60,8 +65,10 @@ class APIController extends AbstractController
         $tab = [];
         $tab = [
             'id' => $unhack->getId(),
-            'dateDebut' => $unhack->getDateDebut(),
-            'dateFin' => $unhack->getDateFin(),
+            'dateDebut' => 
+            substr($unhack->getDateDebut()->format('d-m-Y H:i:s'), 0, 10),
+            'dateFin' =>
+            substr($unhack->getDateFin()->format('d-m-Y H:i:s'), 0, 10),
             'description' => $unhack->getDescription(),
             'image' => $unhack->getImage(),
             'nbPlaces' => $unhack->getNbPlaces(),
@@ -276,23 +283,54 @@ class APIController extends AbstractController
     {
         $evenements = $doctrine->getRepository(Evenements::class)->findAll();
         $tab = [];
-
         foreach ($evenements as $unevenement) {
+            if ($unevenement instanceof Atelier) {
+                
             $tab[] = [
                 'id' => $unevenement->getId(),
                 'libelle' => $unevenement->getLibelle(),
-                'dateEvent' => $unevenement->getDateEvent(),
-                'heure' => $unevenement->getHeure(),
-                'duree' => $unevenement->getDuree(),
+                'dateEvent' =>
+                //on ne prend que les caracteres YYYY-MM-DD
+                substr($unevenement->getDateEvent()->format('d-m-Y H:i:s'), 0, 10),
+                'heure' => 
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getHeure()->format('Y-m-d H:i:s'), 11, 8),
+                'duree' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getDuree()->format('Y-m-d H:i:s'), 11, 8),
                 'salle' => $unevenement->getSalle(),
-                'type' =>
-                //on retourne un type Atelier ou Conference en fonction de la classe fille ou se trouve l'évenement
-                $unevenement instanceof Atelier ? 'atelier' : 'conference',
+                'type' => 'atelier',
                 'hackathon' => $unevenement->getHackathon()->getId(),
-
+                'nbParticipants' => $unevenement->getNbParticipants(),
+                'inscrits' => $unevenement->getInscrits(),
             ];
         }
-        return new JsonResponse($tab);
+        if ($unevenement instanceof Conference) {
+            $tab[] = [
+                'id' => $unevenement->getId(),
+                'libelle' => $unevenement->getLibelle(),
+                'dateEvent' =>
+                //on ne prend que les caracteres YYYY-MM-DD
+                substr($unevenement->getDateEvent()->format('d-m-Y H:i:s'), 0, 10),
+                'heure' => 
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getHeure()->format('Y-m-d H:i:s'), 11, 8),
+                'duree' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getDuree()->format('Y-m-d H:i:s'), 11, 8),
+                'salle' => $unevenement->getSalle(),
+                'type' => 'conference',
+                'hackathon' => $unevenement->getHackathon()->getId(),
+                'theme' => $unevenement->getTheme(),
+                'intervenant' => $unevenement->getIntervenant(),
+            ];
+        }
+        //si ce n'est aucun des deux, on retourne une erreur
+        if (!$unevenement instanceof Conference && !$unevenement instanceof Atelier) {
+            return new JsonResponse(['error' => 'Evenement non trouvé'], 404);
+        }
+    }
+    return new JsonResponse($tab);
     }
     #[Route('/api/evenements/hackathon/{id}', name: 'app_api_evenements_hack')]
     public function evenements_hack(ManagerRegistry $doctrine, $id): JsonResponse
@@ -300,36 +338,135 @@ class APIController extends AbstractController
         $evenements = $doctrine->getRepository(Evenements::class)->findBy(['hackathon' => $id]);
         $tab = [];
         foreach ($evenements as $unevenement) {
+            if ($unevenement instanceof Atelier) {
+                
             $tab[] = [
                 'id' => $unevenement->getId(),
                 'libelle' => $unevenement->getLibelle(),
-                'dateEvent' => $unevenement->getDateEvent(),
-                'heure' => $unevenement->getHeure(),
-                'duree' => $unevenement->getDuree(),
+                'dateEvent' =>
+                //on ne prend que les caracteres YYYY-MM-DD
+                substr($unevenement->getDateEvent()->format('d-m-Y H:i:s'), 0, 10),
+                'heure' => 
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getHeure()->format('Y-m-d H:i:s'), 11, 8),
+                'duree' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getDuree()->format('Y-m-d H:i:s'), 11, 8),
                 'salle' => $unevenement->getSalle(),
-                'type' =>
-                //on retourne un type Atelier ou Conference en fonction de la classe fille ou se trouve l'évenement
-                $unevenement instanceof Atelier ? 'atelier' : 'conference',
+                'type' => 'atelier',
                 'hackathon' => $unevenement->getHackathon()->getId(),
-
+                'nbParticipants' => $unevenement->getNbParticipants(),
+                'inscrits' => $unevenement->getInscrits(),
             ];
         }
+        if ($unevenement instanceof Conference) {
+            $tab[] = [
+                'id' => $unevenement->getId(),
+                'libelle' => $unevenement->getLibelle(),
+                'dateEvent' =>
+                //on ne prend que les caracteres YYYY-MM-DD
+                substr($unevenement->getDateEvent()->format('d-m-Y H:i:s'), 0, 10),
+                'heure' => 
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getHeure()->format('Y-m-d H:i:s'), 11, 8),
+                'duree' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unevenement->getDuree()->format('Y-m-d H:i:s'), 11, 8),
+                'salle' => $unevenement->getSalle(),
+                'type' => 'conference',
+                'hackathon' => $unevenement->getHackathon()->getId(),
+                'theme' => $unevenement->getTheme(),
+                'intervenant' => $unevenement->getIntervenant(),
+            ];
+        }
+        //si ce n'est aucun des deux, on retourne une erreur
+        if (!$unevenement instanceof Conference && !$unevenement instanceof Atelier) {
+            return new JsonResponse(['error' => 'Evenement non trouvé'], 404);
+        }
+    }
         return new JsonResponse($tab);
     }
-    #[Route('/api/evenements/{id}', name: 'app_api_unevenement')]
+    #[Route('/api/evenement/{id}', name: 'app_api_unevenement')]
     public function detail_evenement(ManagerRegistry $doctrine, $id): JsonResponse
     {
         $unevenement = $doctrine->getRepository(Evenements::class)->findOneBy(['id' => $id]);
+        $unconfatelier = $doctrine->getRepository($unevenement instanceof Atelier ? Atelier::class : Conference::class)->findOneBy(['id' => $id]);
         $tab = [];
-        $tab = [
+        //si c'est un atelier
+        if ($unevenement instanceof Atelier) {
+            $tab = [
+                'id' => $unconfatelier->getId(),
+                'libelle' =>$unconfatelier->getLibelle(),
+                'dateEvent' =>
+                //on ne prend que les caracteres YYYY-MM-DD
+                substr($unconfatelier->getDateEvent()->format('d-m-Y H:i:s'), 0, 10),
+                'heure' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unconfatelier->getHeure()->format('Y-m-d H:i:s'), 11, 8),
+                'duree' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unconfatelier->getDuree()->format('Y-m-d H:i:s'), 11, 8),
+                'salle' => $unconfatelier->getSalle(),
+                'hackathon' => $unconfatelier->getHackathon()->getId(),
+                'type' => 'atelier',
+                'nbParticipants' => $unconfatelier->getNbParticipants(),
+                'inscrits' => $unconfatelier->getInscrits(),
+            ];
+        }
+        //si c'est une conference
+        if ($unevenement instanceof Conference) {
+            $tab = [
+                'id' => $unconfatelier->getId(),
+                'libelle' =>$unconfatelier->getLibelle(),
+                'dateEvent' =>
+                //on ne prend que les caracteres YYYY-MM-DD
+                substr($unconfatelier->getDateEvent()->format('d-m-Y H:i:s'), 0, 10),
+                'heure' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unconfatelier->getHeure()->format('Y-m-d H:i:s'), 11, 8),
+                'duree' =>
+                //on ne prend que les caracteres HH:MM:SS
+                substr($unconfatelier->getDuree()->format('Y-m-d H:i:s'), 11, 8),
+                'salle' => $unconfatelier->getSalle(),
+                'hackathon' => $unconfatelier->getHackathon()->getId(),
+                'type' => 'conference',
+                'theme' => $unconfatelier->getTheme(),
+                'intervenant' => $unconfatelier->getIntervenant(),
+            ];
+        }
+
+        /*$tab = [
             'id' => $unevenement->getId(),
             'libelle' => $unevenement->getLibelle(),
-            'dateEvent' => $unevenement->getDateEvent(),
-            'heure' => $unevenement->getHeure(),
-            'duree' => $unevenement->getDuree(),
+            'dateEvent' =>
+            //on ne prend que les caracteres YYYY-MM-DD
+            substr($unevenement->getDateEvent()->format('d-m-Y H:i:s'), 0, 10),
+            'heure' => 
+            //on ne prend que les caracteres HH:MM:SS
+            substr($unevenement->getHeure()->format('Y-m-d H:i:s'), 11, 8),
+            'duree' =>
+            //on ne prend que les caracteres HH:MM:SS
+            substr($unevenement->getDuree()->format('Y-m-d H:i:s'), 11, 8),
             'salle' => $unevenement->getSalle(),
             'hackathon' => $unevenement->getHackathon()->getId(),
-        ];
+            'type' =>
+            //on retourne un type Atelier ou Conference en fonction de la classe fille ou se trouve l'évenement
+            $unevenement instanceof Atelier ? 'atelier' : 'conference',
+            //on retourne aussi toutes les propriétés de la conference ou de l'atelier en question
+            //si c'est une conference
+            $unevenement instanceof Conference ? 'conference' : 'atelier' => [
+                'id' => $confatelier->getId(),
+                'theme' => $confatelier->getTheme(),
+                'intervenant' => $confatelier->getIntervenant(),
+            ],
+            //si c'est un atelier
+            $unevenement instanceof Atelier ? 'atelier' : 'conference' => [
+                'nbParticipants' => $confatelier->getNbParticipants(),
+                'inscrits' => $confatelier->getInscrits(),
+
+           ]
+            
+        ];*/
         return new JsonResponse($tab);
     }
 
