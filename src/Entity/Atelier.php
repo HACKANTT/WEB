@@ -23,6 +23,9 @@ class Atelier extends Evenements
 
     #[ORM\OneToMany(mappedBy: 'id_A', targetEntity: Avis::class, orphanRemoval: true)]
     private Collection $avis;
+
+    #[ORM\Column]
+    private ?int $nbPlaces = null;
     //On a une collection d'avis
     //un atelier peut avoir plusieurs avis
     //un avis ne peut avoir qu'un seul atelier
@@ -102,6 +105,18 @@ class Atelier extends Evenements
                 $avi->setIdA(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNbPlaces(): ?int
+    {
+        return $this->nbPlaces;
+    }
+
+    public function setNbPlaces(int $nbPlaces): self
+    {
+        $this->nbPlaces = $nbPlaces;
 
         return $this;
     }
