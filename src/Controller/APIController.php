@@ -302,7 +302,7 @@ class APIController extends AbstractController
                 }
             }
             //on verifie qu'il reste de la place
-            if ($atelier->getNbPlaces() <= $atelier->getNbParticipants()) {
+            if ($atelier->getNbPlaces() <= count($atelier->getInscrits())) {
                 return new JsonResponse(['error' => 'Il n\'y a plus de place pour cet atelier'], 403);
             }
             //on verifie que la date ne dépasse aps celle d'aujourd'hui 
