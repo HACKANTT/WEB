@@ -16,7 +16,10 @@
 					</h1>
 					{% for message in app.flashes('success') %}
 						<div class="alert alert-success">
-							{{ message }}
+							Vous êtes inscrit à
+							<a href="/profil/inscriptions">
+								<span style="text-decoration: underline;">ce hackathon</span>
+							</a>
 						</div>
 					{% endfor %}
 					{% for message in app.flashes('danger') %}
@@ -31,8 +34,8 @@
 				<p class="fs-5 text-faded mb-5" data-aos="fade-down" data-aos-delay="100" style="font-family: ABeeZee, sans-serif;">
 					<span style="color: rgb(195, 190, 182); background-color: var(--green-100);">
 						Les hackathons sont des événements où
-																																			les participants sont invités à résoudre des problèmes en utilisant des technologies de
-																																			l'informatique.</span><br></p>
+																																									les participants sont invités à résoudre des problèmes en utilisant des technologies de
+																																									l'informatique.</span><br></p>
 				<a class="btn btn-primary btn-xl" role="button" href="#service" style="background: var(--bs-primary);">EXPLORER NOS HACKATHONS<br></a>
 				<center>
 					<div>
@@ -51,14 +54,14 @@
 					</h2>
 					<hr data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="100" class="light my-4">
 					<p class="fs-5 text-faded mb-4" style="font-family: ABeeZee, sans-serif;filter: blur(0px);backdrop-filter: blur(0px);margin-top: 30px;">Nous
-																																																					avons pour but de simplifier&nbsp;la gestion de l'organisation&nbsp;de hackathons. Pour cela plusieurs
-																																																					applications&nbsp;sont en cours de développement, dont celle que vous consultez en ce moment
-																																																					même.<br><br><br>Hackat'Agence, c'est une plateforme web, mais aussi une&nbsp;application mobile
+																																																											avons pour but de simplifier&nbsp;la gestion de l'organisation&nbsp;de hackathons. Pour cela plusieurs
+																																																											applications&nbsp;sont en cours de développement, dont celle que vous consultez en ce moment
+																																																											même.<br><br><br>Hackat'Agence, c'est une plateforme web, mais aussi une&nbsp;application mobile
 						<br>qui
-																																																					permet aux participants de suivre toutes les activités annexes des hackathons.<br>Enfin, c'est aussi une
-																																																					application bureau, pour simplifier le travail des organisateurs en coordonnant les différentes
-																																																					opérations.<br><br><br>L'entreprise a été créée en 2022 par trois entrepreneurs français, Théo Proutière,
-																																																					Nikolas Loizeau, et Théo Palestro.<br><br></p>
+																																																											permet aux participants de suivre toutes les activités annexes des hackathons.<br>Enfin, c'est aussi une
+																																																											application bureau, pour simplifier le travail des organisateurs en coordonnant les différentes
+																																																											opérations.<br><br><br>L'entreprise a été créée en 2022 par trois entrepreneurs français, Théo Proutière,
+																																																											Nikolas Loizeau, et Théo Palestro.<br><br></p>
 					<a class="btn btn-light btn-xl" role="button" href="#service">plus de DÉTAILs</a>
 				</div>
 			</div>
@@ -84,8 +87,8 @@
 						</svg>
 						<h3 class="text-center mb-3">Des Hackathons réguliers</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Permettent aux participants
-																																																																																																			              de développer leurs compétences et de se familiariser avec les outils et différentes
-																																																																																																			              technologies/outils.<br></p>
+																																																																																																										              de développer leurs compétences et de se familiariser avec les outils et différentes
+																																																																																																										              technologies/outils.<br></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 text-center">
@@ -97,7 +100,7 @@
 						</svg>
 						<h3 class="mb-3">Intervenants de renommée&nbsp;</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Apportent leur expertise et
-																																																																																																			              leur savoir-faire aux participants, ce qui leur permet d'améliorer leurs propres compétences.<br></p>
+																																																																																																										              leur savoir-faire aux participants, ce qui leur permet d'améliorer leurs propres compétences.<br></p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 text-center">
@@ -109,7 +112,7 @@
 						</svg>
 						<h3 class="mb-3">Ateliers d'initiation pour les débutants</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Contribue à apprendre les
-																																																																																																			              bases nécessaires pour se lancer dans différents projet et permettent de progresser rapidement</p>
+																																																																																																										              bases nécessaires pour se lancer dans différents projet et permettent de progresser rapidement</p>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-3 offset-xxl-0 text-center">
@@ -121,7 +124,7 @@
 						</svg>
 						<h3 class="mb-3">Conférences sur divers sujets</h3>
 						<p class="text-center text-muted mb-0" style="font-family: ABeeZee, sans-serif;">Permet d'en apprendre
-																																																																																																			              davantage sur les différents aspects du développement et de se tenir au courant des dernières tendances.
+																																																																																																										              davantage sur les différents aspects du développement et de se tenir au courant des dernières tendances.
 						</p>
 					</div>
 				</div>
@@ -131,29 +134,29 @@
 	<section
 		id="hackathons" class="p-0">
 		<!-- recherche ajax interactive
-																		<script>
-																			function showResult(str) {
-																if (str.length == 0) {
-																document.getElementById("livesearch").innerHTML = "";
-																document.getElementById("livesearch").style.border = "0px";
-																return;
-																}
-																var xmlhttp = new XMLHttpRequest();
-																xmlhttp.onreadystatechange = function () {
-																if (this.readyState == 4 && this.status == 200) {
-																document.getElementById("livesearch").innerHTML = this.responseText;
-																document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
-																}
-																}
-																xmlhttp.open("GET", "http://127.0.0.1:8001/api/recherche/" + str, true);
-																xmlhttp.send();
-																}
-																		</script>
-																
-																		<form style="display:flex ; justify-content: flex-end">
-																			<input type="text" size="30" onkeyup="showResult(this.value)" placeholder="Rechercher la ville d'un hackathon">
-																			<div id="livesearch"></div>
-																		</form>-->
+																				<script>
+																					function showResult(str) {
+																		if (str.length == 0) {
+																		document.getElementById("livesearch").innerHTML = "";
+																		document.getElementById("livesearch").style.border = "0px";
+																		return;
+																		}
+																		var xmlhttp = new XMLHttpRequest();
+																		xmlhttp.onreadystatechange = function () {
+																		if (this.readyState == 4 && this.status == 200) {
+																		document.getElementById("livesearch").innerHTML = this.responseText;
+																		document.getElementById("livesearch").style.border = "1px solid #A5ACB2";
+																		}
+																		}
+																		xmlhttp.open("GET", "http://127.0.0.1:8001/api/recherche/" + str, true);
+																		xmlhttp.send();
+																		}
+																				</script>
+																		
+																				<form style="display:flex ; justify-content: flex-end">
+																					<input type="text" size="30" onkeyup="showResult(this.value)" placeholder="Rechercher la ville d'un hackathon">
+																					<div id="livesearch"></div>
+																				</form>-->
 		<script>
 			function recherche() {
 var input,
@@ -186,9 +189,9 @@ div[i].style.display = "";
 }
 		</script>
 		<!--- <div id="recherche" class="container-fluid p-0" style="display:flex ; justify-content: flex-end">
-											<input type="text" id="search" placeholder="Rechercher un hackathon" style="width: 25%;height: 50px;border: none;border-radius: 0px;color: var(--bs-light);font-size: 20px;">
-											<a class="btn btn-light btn-xl" role="button" href="#hackathons">rechercher</a>
-										</div>-->
+													<input type="text" id="search" placeholder="Rechercher un hackathon" style="width: 25%;height: 50px;border: none;border-radius: 0px;color: var(--bs-light);font-size: 20px;">
+													<a class="btn btn-light btn-xl" role="button" href="#hackathons">rechercher</a>
+												</div>-->
 		<div class="container-fluid p-0" style="max-width: 1950px;">
 			<div class="row g-0 justify-content-between">
 				<div class="col text-center mx-auto">
@@ -256,7 +259,7 @@ div[i].style.display = "";
 									</div>
 									<div class="modal-footer">
 										{% if app.user %}
-											<a type="button" id="rejoindre" class="btn btn-primary btn-lg" href="">Rejoindre ce hackathon</a>
+											<a type="button" id="rejoindre" class="btn btn-primary btn-lg" href="{{path('app_inscription_hackathon', {id: hackathon.id})}}">Rejoindre ce hackathon</a>
 										{% else %}
 											<button type="button " class="btn btn-secondary" href="/connexion.php" data-bs-target="#connexionModal" data-bs-toggle="modal">Veuillez vous connecter pour rejoindre ce hackathon</button>
 										{% endif %}
@@ -325,7 +328,7 @@ div.addEventListener('click', majFavoris);
 };
 					</script>
 					<script>
-						(function ($) { 
+						(function ($) {
 $('.portfolio-box').on('click', function () { // on affiche un loader en attendant que le modal s'affiche
 let infoModal = $('#myModal' + $(this).data('id'));
 infoModal.find('.modal-body').html('<div class="d-flex justify-content-center"><div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div></div>');
@@ -341,8 +344,7 @@ console.log(data);
 htmlData = '<img src="' + data.image + '" class="img-fluid" alt="image du hackathon"><br><br><h4> ' + data.theme + '</h4><br><ul><li><strong>Description:</strong> ' + data.description + '</li><li><strong>Lieu:</strong> ' + data.lieu + ', ' + data.rue + ' à ' + data.ville + ' - ' + data.cp + '<iframe allowfullscreen frameborder="0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBBsM0iiWw3EHaTaHnRYtYPWq5GeBEM2pE&amp;q=' + data.lieu + ',' + data.rue + ',' + data.ville + '&amp;zoom=8" loading="lazy" width="100%" height="300"></iframe><br></li><li><strong>Date limite d\'inscription:</strong> ' + data.dateLimite.date + '</li><li><strong>Nombre de places restantes:</strong> ' + data.nbPlaces + '</li></ul>';
 infoModal.find('.modal-body').html(htmlData);
 
-// on met l'attribut href du bouton avec id "rejoindre" à l'id du hackathon
-$('#rejoindre').attr('href', '/inscription/' + data.id);
+// on met l'attribut href du bouton avec id "rejoindre" dans le modal en question à l'id du hackathon
 
 // on met l'attribut du href du a avec la classe coeurfavoris à l'id du hackathon
 $('.coeurfavoris').attr('href', '/fav/hackathon/' + data.id);

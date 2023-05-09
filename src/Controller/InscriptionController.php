@@ -43,6 +43,7 @@ class InscriptionController extends AbstractController
                     'id_H' => $hackathon,
                 ]) != null
             ) {
+                $this->addFlash('danger', 'Vous êtes déjà inscrit à ce hackathon');
                 return $this->redirectToRoute('app_home');
             }
             //on crée une nouvelle inscription
@@ -52,11 +53,8 @@ class InscriptionController extends AbstractController
             $inscription->setidH($hackathon);
             $inscription->setDateInscription(new \DateTime());
         } catch (\Exception $e) {
+            $this->addFlash('danger','Une erreur est survenue');
             return $this->redirectToRoute('app_home');
-            $this->addFlash(
-                'danger',
-                'Une erreur est survenue'
-            );
         }
         // on récupère le manager de doctrine 
         /** @var EntityManagerInterface */
@@ -65,10 +63,55 @@ class InscriptionController extends AbstractController
         $em->persist($inscription);
         $em->flush();
         //on fait une flash message
-        //si ca a fonctionné :
-        $this->addFlash('success', 'Vous êtes inscrit à ce hackathon');
-        //sinon :
-        $this->addFlash('danger', 'Vous n\'êtes pas inscrit à ce hackathon');
+        $this->addFlash('success', 'Vous êtes inscrit '.'<a href="/profil/inscriptions>'.'à ce hackathon'.'</a>');
         return $this->redirectToRoute('app_home');
+    }
+
+    //on fait une route qui désinscrit un utilisateur à un hackathon
+    #[Route('/desinscription/{id}', name: 'app_desinscription_hackathon')]
+    //on fait une fonction qui va désinscrire l'utilisateur
+    public function desinscription(Request $request, ManagerRegistry $doctrine, $id): Response
+    {
+        //on récupère le hackathon correspondant
+        $hackathon = $doctrine->getRepository(Hackatons::class)->find($id);
+        //on vérifie si le hackathon existe
+        try {
+            if (!$hackathon) {
+                throw $this->createNotFoundException('Hackathon introuvable');
+            }
+            //on récupère l'utilisateur connecté
+            $user = $this->getUser();
+            //on vérifie si l'utilisateur est connecté
+            if (!$user) {
+                return $this->redirectToRoute('app_login');
+            }
+            //on vérifie si l'utilisateur est déjà inscrit au hackathon
+            if (
+                $doctrine->getRepository(Inscription::class)->findOneBy([
+                    'id_U' => $user,
+                    'id_H' => $hackathon,
+                ]) == null
+            ) {
+                $this->addFlash('danger', 'Vous n\'êtes pas inscrit à ce hackathon');
+                return $this->redirectToRoute('app_inscriptions');
+            }
+            //on récupère l'inscription de l'utilisateur
+            $inscription = $doctrine->getRepository(Inscription::class)->findOneBy([
+                'id_U' => $user,
+                'id_H' => $hackathon,
+            ]);
+        } catch (\Exception $e) {
+            $this->addFlash('danger','Une erreur est survenue');
+            return $this->redirectToRoute('app_inscriptions');
+        }
+        // on récupère le manager de doctrine 
+        /** @var EntityManagerInterface */
+        $em =  $doctrine->getManager();
+        // on persiste et on flush 
+        $em->remove($inscription);
+        $em->flush();
+        //on fait une flash message
+        $this->addFlash('success', 'Vous êtes désinscrit de ce hackathon');
+        return $this->redirectToRoute('app_inscriptions');
     }
 }
