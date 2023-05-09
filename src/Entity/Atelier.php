@@ -11,8 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Atelier extends Evenements
 //Atlier est une classe enfant de Evenements
 {
-    #[ORM\Column]
-    private ?int $nbParticipants = null;
 
     #[ORM\OneToMany(mappedBy: 'relationAtelier', targetEntity: Inscrits::class)]
     private Collection $inscrits;
@@ -34,19 +32,6 @@ class Atelier extends Evenements
     {
         $this->inscrits = new ArrayCollection();
         $this->avis = new ArrayCollection();
-    }
-
-
-    public function getNbParticipants(): ?int
-    {
-        return $this->nbParticipants;
-    }
-
-    public function setNbParticipants(int $nbParticipants): self
-    {
-        $this->nbParticipants = $nbParticipants;
-
-        return $this;
     }
 
     /**
