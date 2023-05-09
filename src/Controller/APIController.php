@@ -461,7 +461,6 @@ class APIController extends AbstractController
                 'salle' => $unconfatelier->getSalle(),
                 'hackathon' => $unconfatelier->getHackathon()->getId(),
                 'type' => 'atelier',
-                'nbParticipants' => $unconfatelier->getNbParticipants(),
                 'nbPlaces' => $unevenement->getNbPlaces(),
                 'nbInscrits' => count($unevenement->getInscrits()),
                 'inscrits' => $unconfatelier->getInscrits(),
