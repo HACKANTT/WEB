@@ -261,7 +261,7 @@ div[i].style.display = "";
 										{% if app.user %}
 											<a type="button" id="rejoindre" class="btn btn-primary btn-lg" href="{{path('app_inscription_hackathon', {id: hackathon.id})}}">Rejoindre ce hackathon</a>
 										{% else %}
-											<button type="button " class="btn btn-secondary" href="/connexion.php" data-bs-target="#connexionModal" data-bs-toggle="modal">Veuillez vous connecter pour rejoindre ce hackathon</button>
+											<button type="button" class="btn btn-secondary" href="/connexion.php" data-bs-target="#connexionModal" data-bs-toggle="modal">Veuillez vous connecter pour rejoindre ce hackathon</button>
 										{% endif %}
 										<button type="button" class="btn btn-default btn-lg" data-bs-dismiss="modal">Fermer</button>
 									</div>
@@ -457,7 +457,7 @@ return false;
 							<div class="mb-3"></div>
 							<!-- End: Success Example -->
 							<!-- Start: Error Example -->
-							<div class="mb-3"><input class="form-control" type="email" id="email" name="email" placeholder="Email" style="font-family: ABeeZee, sans-serif;"></div>
+							<div class="mb-3"><input class="form-control" type="email" id="e-mail" name="email" placeholder="Email" style="font-family: ABeeZee, sans-serif;"></div>
 							<!-- End: Error Example -->
 							<div class="mb-3">
 								<textarea class="form-control" id="message" name="message" rows="6" placeholder="Message" style="font-family: ABeeZee, sans-serif;"></textarea>

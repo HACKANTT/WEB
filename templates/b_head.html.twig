@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
 		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<meta charset="utf-8">
@@ -22,7 +22,6 @@
 		<link rel="icon" type="image/png" sizes="1080x1080" href="{{ asset('img/logo/Hackat%27Agence-color.png?h=b3747d75945ea47dc469ad4bb408fb73') }}">
 		<link rel="icon" type="image/png" sizes="1080x1080" href="{{ asset('img/logo/Hackat%27Agence-color.png?h=b3747d75945ea47dc469ad4bb408fb73') }}">
 		<link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css?h=012df120f3b0c7b81bee90c64257b484') }}">
-		<link rel="manifest" href="manifest.json?h=4fcbef6d7cb1822999562052401291ef">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic&amp;display=swap">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap">
@@ -108,10 +107,10 @@
 						</div>
 						<form class="user text-center" action="{{ path('app_login') }}" style="font-family: ABeeZee, sans-serif;min-width: 50%;" method="post">
 							<div class="mb-3">
-								<input class="form-control form-control-user" type="email" id="email" aria-describedby="emailHelp" placeholder="Entrez votre adresse e-mail..." name="_username">
+								<input class="form-control form-control-user" type="email" id="email" aria-describedby="emailHelp" placeholder="Entrez votre adresse e-mail..." name="_username" autocomplete="email" autofocus="autofocus">
 							</div>
 							<div class="mb-3">
-								<input class="form-control form-control-user" type="password" id="password" placeholder="Et votre mot de passe..." name="_password">
+								<input class="form-control form-control-user" type="password" id="password" placeholder="Et votre mot de passe..." name="_password" autocomplete="current-password">
 							</div>
 							<div class="mb-3">
 								<div class="custom-control custom-checkbox small">
