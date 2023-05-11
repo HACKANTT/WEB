@@ -1,0 +1,23 @@
+{
+  "short_name": "Hackat'Web",
+  "name": "Hackat' Web",
+  "icons": [
+    {
+      "src": "/img/logo/Hackat'Agence-color.png?h=b3747d75945ea47dc469ad4bb408fb73",
+      "type": "image/png",
+      "sizes": "1080x1080",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/img/logo/Hackat'Agence-color.png?h=b3747d75945ea47dc469ad4bb408fb73",
+      "type": "image/png",
+      "sizes": "1080x1080",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#076ae0",
+  "theme_color": "#076ae0",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
