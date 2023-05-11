@@ -117,7 +117,7 @@ class APIController extends AbstractController
         return $this->json(['success' => '1'], 200);
     }
 
-    #[Route('/inscription/hackathon/{id}', name: 'app_api_inscription_hackathon')]
+    /*#[Route('/inscription/hackathon/{id}', name: 'app_api_inscription_hackathon')]
     public function inscription_hackathon($id, ManagerRegistry $doctrine): Response
     {
         $repository = $doctrine->getRepository(Hackatons::class);
@@ -157,7 +157,7 @@ class APIController extends AbstractController
 
         // on récupère le manager de doctrine 
         /** @var EntityManagerInterface */
-        $em =  $doctrine->getManager();
+        /*$em =  $doctrine->getManager();
 
         // on persiste et on flush 
         $em->persist($inscription);
@@ -166,9 +166,9 @@ class APIController extends AbstractController
         //si ca a fonctionné :
         $this->addFlash('success', 'Vous êtes inscrit à ce hackathon');
         return $this->redirectToRoute('app_inscriptions');
-    }
+    }*/
 
-    #[Route('/desinscription/hackathon/{id}', name: 'app_api_desinscription_hackathon')]
+    /*#[Route('/desinscription/hackathon/{id}', name: 'app_api_desinscription_hackathon')]
     public function desinscription_hackathon($id, ManagerRegistry $doctrine): Response
     {
         $repository = $doctrine->getRepository(Hackatons::class);
@@ -208,7 +208,7 @@ class APIController extends AbstractController
 
         // on récupère le manager de doctrine 
         /** @var EntityManagerInterface */
-        $em =  $doctrine->getManager();
+        /*$em =  $doctrine->getManager();
 
         // on persiste et on flush 
         $em->remove($inscription);
@@ -217,10 +217,10 @@ class APIController extends AbstractController
         //si ca a fonctionné :
         $this->addFlash('success', 'Vous êtes désinscrit de ce hackathon');
         return $this->redirectToRoute('app_inscriptions');
-    }
+    }*/
 
 
-    #[Route('/api/utilisateurs', name: 'app_api_utilisateurs')]
+    /*#[Route('/api/utilisateurs', name: 'app_api_utilisateurs')]
     public function utilisateurs(ManagerRegistry $doctrine): JsonResponse
     {
         $utilisateurs = $doctrine->getRepository(Utilisateurs::class)->findAll();
@@ -277,7 +277,7 @@ class APIController extends AbstractController
             'supprime' => $unutilisateur->getSupprime(),
         ];
         return new JsonResponse($tab);
-    }
+    }*/
 
     //on créé une route qui recoit en json les infos nom, prenom et mail d'une appli mobile et atelier pour créer un inscrit dans la tables Inscrits
     #[Route('/api/inscription/atelier', name: 'app_api_inscription_atelier', methods: ['POST'])]
@@ -328,7 +328,7 @@ class APIController extends AbstractController
         }
 
 
-    #[Route('/api/evenements', name: 'app_api_evenements')]
+    /*#[Route('/api/evenements', name: 'app_api_evenements')]
     public function evenements(ManagerRegistry $doctrine): JsonResponse
     {
         $evenements = $doctrine->getRepository(Evenements::class)->findAll();
@@ -382,7 +382,7 @@ class APIController extends AbstractController
         }
     }
     return new JsonResponse($tab);
-    }
+    }*/
     #[Route('/api/evenements/hackathon/{id}', name: 'app_api_evenements_hack')]
     public function evenements_hack(ManagerRegistry $doctrine, $id): JsonResponse
     {
@@ -438,7 +438,7 @@ class APIController extends AbstractController
     }
         return new JsonResponse($tab);
     }
-    #[Route('/api/evenement/{id}', name: 'app_api_unevenement')]
+    /*#[Route('/api/evenement/{id}', name: 'app_api_unevenement')]
     public function detail_evenement(ManagerRegistry $doctrine, $id): JsonResponse
     {
         $unevenement = $doctrine->getRepository(Evenements::class)->findOneBy(['id' => $id]);
@@ -520,8 +520,8 @@ class APIController extends AbstractController
            ]
             
         ];*/
-        return new JsonResponse($tab);
-    }
+        /*return new JsonResponse($tab);
+    }*/
 
     ##############################RECHERCHE##############################
 
