@@ -20,14 +20,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class APIController extends AbstractController
 {
-    #[Route('/a/p/i', name: 'app_a_p_i')]
+    /*#[Route('/a/p/i', name: 'app_a_p_i')]
     public function index(): Response
     {
         return $this->render('api/index.html.twig', [
 
             'controller_name' => 'APIController',
         ]);
-    }
+    }*/
 
     #[Route('/api/hackathons', name: 'app_api_hackathon', methods: 'GET')]
     public function hackathon(ManagerRegistry $doctrine): JsonResponse
@@ -57,12 +57,18 @@ class APIController extends AbstractController
             ];
         }
         return new JsonResponse($tab);
+        
     }
 
     #[Route('/api/hackathons/{id}', name: 'app_api_unhackathon')]
     public function detail_hackathon(ManagerRegistry $doctrine, $id): JsonResponse
     {
+
         $unhack = $doctrine->getRepository(Hackatons::class)->findOneBy(['id' => $id]);
+        //si le hackathon n,'existe pas on retourne une erreur
+        if (!$unhack) {
+            return new JsonResponse(['error' => 'Hackathon non trouvé'], 404);
+        }
         $tab = [];
         $tab = [
             'id' => $unhack->getId(),
