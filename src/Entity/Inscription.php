@@ -14,39 +14,20 @@ class Inscription
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $numInscription = null;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $dateInscription = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscriptions')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?hackatons $id_H = null;
+    private ?Hackatons $id_H = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(targetEntity: Utilisateurs::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Utilisateurs $id_U = null;
-
-    #[ORM\ManyToOne(inversedBy: 'idI')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?Utilisateurs $utilisateurs = null;
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getNumInscription(): ?string
-    {
-        return $this->numInscription;
-    }
-
-    public function setNumInscription(string $numInscription): self
-    {
-        $this->numInscription = $numInscription;
-
-        return $this;
     }
 
     public function getDateInscription(): ?\DateTimeInterface
@@ -60,38 +41,26 @@ class Inscription
 
         return $this;
     }
-    public function getIdU(): ?int
+    public function getIdU(): ?Utilisateurs
     {
-        return $this->idU;
+        return $this->id_U;
     }
 
-    public function setIdU(int $idU): self
+    public function setIdU(?Utilisateurs $idU): self
     {
-        $this->idU = $idU;
+        $this->id_U = $idU;
 
         return $this;
     }
 
-    public function getIdH(): ?hackatons
+    public function getIdH(): ?Hackatons
     {
         return $this->id_H;
     }
 
-    public function setIdH(?hackatons $id_H): self
+    public function setIdH(?Hackatons $id_H): self
     {
         $this->id_H = $id_H;
-
-        return $this;
-    }
-
-    public function getUtilisateurs(): ?Utilisateurs
-    {
-        return $this->utilisateurs;
-    }
-
-    public function setUtilisateurs(?Utilisateurs $utilisateurs): self
-    {
-        $this->utilisateurs = $utilisateurs;
 
         return $this;
     }

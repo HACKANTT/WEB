@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Favoris;
 use App\Entity\Hackatons;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,11 +17,16 @@ class HomeController extends AbstractController
     public function home(AuthenticationUtils $authenticationUtils, ManagerRegistry $doctrine): Response
     {
         $hackathons = $doctrine->getRepository(Hackatons::class)->findAll();
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-
+        $favorisId=$doctrine->getRepository(Favoris::class)
+        ->findBy(['id_U' => $this->getUser()]);
+        $favoris=[];
+        foreach ($favorisId as $favori) {
+            $favoris[]=$doctrine->getRepository(Hackatons::class)
+            ->find($favori->getIdH());
+        }
         return $this->render('home/home.html.twig', [
             'hackathons' => $hackathons,
+            'favoris' => $favoris,
         ]);
     }
 

@@ -9,38 +9,29 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AtelierRepository::class)]
 class Atelier extends Evenements
+//Atlier est une classe enfant de Evenements
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
-
-    #[ORM\Column]
-    private ?int $nbParticipants = null;
 
     #[ORM\OneToMany(mappedBy: 'relationAtelier', targetEntity: Inscrits::class)]
     private Collection $inscrits;
+    //On a une collection d'inscrits
+    //un atelier peut avoir plusieurs inscrits
+    //un inscrit ne peut avoir qu'un seul atelier
+
+
+    #[ORM\OneToMany(mappedBy: 'id_A', targetEntity: Avis::class, orphanRemoval: true)]
+    private Collection $avis;
+
+    #[ORM\Column]
+    private ?int $nbPlaces = null;
+    //On a une collection d'avis
+    //un atelier peut avoir plusieurs avis
+    //un avis ne peut avoir qu'un seul atelier
 
     public function __construct()
     {
         $this->inscrits = new ArrayCollection();
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    public function getNbParticipants(): ?int
-    {
-        return $this->nbParticipants;
-    }
-
-    public function setNbParticipants(int $nbParticipants): self
-    {
-        $this->nbParticipants = $nbParticipants;
-
-        return $this;
+        $this->avis = new ArrayCollection();
     }
 
     /**
@@ -69,6 +60,48 @@ class Atelier extends Evenements
                 $inscrit->setRelationAtelier(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Avis>
+     */
+    public function getAvis(): Collection
+    {
+        return $this->avis;
+    }
+
+    public function addAvi(Avis $avi): self
+    {
+        if (!$this->avis->contains($avi)) {
+            $this->avis->add($avi);
+            $avi->setIdA($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAvi(Avis $avi): self
+    {
+        if ($this->avis->removeElement($avi)) {
+            // set the owning side to null (unless already changed)
+            if ($avi->getIdA() === $this) {
+                $avi->setIdA(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getNbPlaces(): ?int
+    {
+        return $this->nbPlaces;
+    }
+
+    public function setNbPlaces(int $nbPlaces): self
+    {
+        $this->nbPlaces = $nbPlaces;
 
         return $this;
     }

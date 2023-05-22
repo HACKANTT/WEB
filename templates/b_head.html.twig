@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 		<title>
@@ -31,6 +30,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.11.1/baguetteBox.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 	<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="57">
 		<nav class="navbar navbar-light navbar-expand-lg fixed-top" id="mainNav">
@@ -44,7 +44,7 @@
 					</svg>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center">
+					<ul class="navbar-nav d-lg-flex ms-auto align-items-lg-center"style="white-space: nowrap;">
 						<li class="nav-item">
 							<a class="nav-link" data-aos="zoom-in-down" data-aos-delay="50" data-aos-once="true" href="{{path('app_home')}}#apropos">A propos</a>
 						</li>
@@ -62,10 +62,16 @@
 						</li>
 						{# si l'utilisateur est connecté on affiche un item, sinon on affiche un autre item #}
 						{% if app.user %}
-						<li class="nav-item">
+						<li class="nav-item nav-link">
 							<a class="nav-link border rounded-pill border-2 d-flex justify-content-center justify-content-sm-center align-items-sm-center align-items-xxl-center" data-aos="zoom-in-down" data-aos-delay="300" data-aos-once="true" href="{{path('app_logout')}}">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-5" style="margin-right: 8px;"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
 							Déconnexion</a>
+						</li>
+						<li class="nav-item nav-link">
+							<a class="nav-link border rounded-pill border-2 d-flex justify-content-center justify-content-sm-center align-items-sm-center align-items-xxl-center" data-aos="zoom-in-down" data-aos-delay="300" data-aos-once="true" href="{{path('app_profil')}}">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-5" style="margin-right: 8px;"><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+							MON TABLEAU DE BORD
+							</a>
 						</li>
 						{% else %}
 						<li class="nav-item">
@@ -78,7 +84,7 @@
 								<p id="username" style="margin-bottom: 0px;padding-bottom: 0px;">CONNEXION</p>
 							</a>
 						</li>
-						{% for flash_error in app.flashes('danger') %}
+						{% for flash_error in app.flashes('dangerSession') %}
 							<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
 						{% endfor %}
 						{% endif %}
@@ -99,22 +105,21 @@
 								<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"></path>
 							</svg>
 						</div>
-						<form class="user" action="{{ path('app_login') }}" method="post">
+						<form class="user text-center" action="{{ path('app_login') }}" style="font-family: ABeeZee, sans-serif;min-width: 50%;" method="post">
 							<div class="mb-3">
-								<input class="form-control form-control-user" type="email" id="email" aria-describedby="emailHelp" placeholder="Entrez votre adresse e-mail..." name="_username">
+								<input class="form-control form-control-user" type="email" id="email" aria-describedby="emailHelp" placeholder="Entrez votre adresse e-mail..." name="_username" autocomplete="email" autofocus="autofocus">
 							</div>
 							<div class="mb-3">
-								<input class="form-control form-control-user" type="password" id="password" placeholder="Et votre mot de passe..." name="_password">
+								<input class="form-control form-control-user" type="password" id="password" placeholder="Et votre mot de passe..." name="_password" autocomplete="current-password">
 							</div>
 							<div class="mb-3">
 								<div class="custom-control custom-checkbox small">
 									<div class="form-check">
-										<input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1">
+										<input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"style="float: none;">
 										<label class="form-check-label custom-control-label" for="formCheck-1">Se souvenir de moi</label>
 									</div>
 								</div>
 							</div>
-
 							{# If you want to control the URL the user is redirected to on success
 																			<input type="hidden" name="_target_path" value="/account"> #}
 

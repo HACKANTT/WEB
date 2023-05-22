@@ -78,8 +78,8 @@ class UtilisateursType extends AbstractType
                         new NotBlank(),
                         new Assert\Regex(
                             array(
-                                #regex for french phone number (10 digits)
-                                'pattern' => '/^0[1-9]([-. ]?[0-9]{2}){4}$/',
+                                #regex for french phone number (10 digits) or internationale (+336...)
+                                'pattern' => '/^(\+33|0)[1-9](\d{2}){4}$/',
                                 'message' => 'Le numéro de téléphone {{ value }}  n\'est pas valide',
                             ),
                         ),
@@ -123,6 +123,7 @@ class UtilisateursType extends AbstractType
                 'lienPortfolio',
                 UrlType::class,
                 array(
+                    'help' => 'Le lien vers le portfolio doit être de la forme : http://www.monportfolio.com',
                     'label' => 'Lien vers votre portfolio',
                     'attr' => [
                         'placeholder' => 'Lien du Portfolio',
@@ -167,7 +168,7 @@ class UtilisateursType extends AbstractType
                 'password',
                 PasswordType::class,
                 array(
-                    'help' => 'Le mot de passe doit contenir au moins 6 caractères, dont une majuscule, une minuscule, et un caractère spécial.',
+                    'help' => 'Le mot de passe doit contenir au moins 6 caractères, dont une majuscule, une minuscule, et au moins un caractère spécial.',
                     'label' => 'Mot de passe',
                     'attr' => [
                         'placeholder' => 'Mot de passe',
@@ -179,8 +180,8 @@ class UtilisateursType extends AbstractType
                         new NotBlank(),
                         new Assert\Regex(
                             array(
-                                #regex pour un mot de passe fort : 6 caractères dont une majuscule, une minuscule et un caractère spécial
-                                'pattern' => '/^[a-zA-Z][a-zA-Z0-9-_\.]{6,20}$/',
+                                #regex pour un mot de passe fort : 6 caractères dont une majuscule, une minuscule et au moins un caractère spécial
+                                'pattern' => '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[-+_!@#$%^&*., ?]).{6,}$/',
                                 'message' => 'Le mot de passe n\'est pas valide, veuillez vérifier les conditions ci-dessus',
                             )
                         ),

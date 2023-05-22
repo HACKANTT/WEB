@@ -1,0 +1,136 @@
+{% extends 'b_head.html.twig' %}
+
+{% block title %}S'inscrire
+{% endblock %}
+
+{% block body %}
+	<div style="background-color:#076ae0;height:64px;height: 75px;margin-bottom: 50px;position: fixed;width:100%;"></div>
+
+	<!-- Start: 1 Row 2 Columns -->
+	<div class="container-lg">
+		<div class="row gx-md-0">
+			<div class="col-md-4 col-lg-3 col-xl-3" style="margin-top: 100px;">
+				<div id="sidebar-main" class="sidebar sidebar-default sidebar-separate">
+					<div class="sidebar-category sidebar-default">
+						<div class="category-title">
+							<span>{{ app.user.nom }} {{ app.user.prenom }}</span>
+						</div>
+						<div class="category-content">
+							<ul class="nav flex-column" id="profil-nav">
+								<li class="nav-item">
+									<a class="nav-link active" href="{{path('app_profil')}}">
+										<svg xmlns="http://www.w3.org/2000/svg" viewbox="-32 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-4" aria-hidden="true"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+										</svg>
+										Mon profil</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{path('app_inscriptions')}}">
+										<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-4" aria-hidden="true"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M152.1 38.16C161.9 47.03 162.7 62.2 153.8 72.06L81.84 152.1C77.43 156.9 71.21 159.8 64.63 159.1C58.05 160.2 51.69 157.6 47.03 152.1L7.029 112.1C-2.343 103.6-2.343 88.4 7.029 79.03C16.4 69.66 31.6 69.66 40.97 79.03L63.08 101.1L118.2 39.94C127 30.09 142.2 29.29 152.1 38.16V38.16zM152.1 198.2C161.9 207 162.7 222.2 153.8 232.1L81.84 312.1C77.43 316.9 71.21 319.8 64.63 319.1C58.05 320.2 51.69 317.6 47.03 312.1L7.029 272.1C-2.343 263.6-2.343 248.4 7.029 239C16.4 229.7 31.6 229.7 40.97 239L63.08 261.1L118.2 199.9C127 190.1 142.2 189.3 152.1 198.2V198.2zM224 96C224 78.33 238.3 64 256 64H480C497.7 64 512 78.33 512 96C512 113.7 497.7 128 480 128H256C238.3 128 224 113.7 224 96V96zM224 256C224 238.3 238.3 224 256 224H480C497.7 224 512 238.3 512 256C512 273.7 497.7 288 480 288H256C238.3 288 224 273.7 224 256zM160 416C160 398.3 174.3 384 192 384H480C497.7 384 512 398.3 512 416C512 433.7 497.7 448 480 448H192C174.3 448 160 433.7 160 416zM0 416C0 389.5 21.49 368 48 368C74.51 368 96 389.5 96 416C96 442.5 74.51 464 48 464C21.49 464 0 442.5 0 416z"></path>
+										</svg>&nbsp;Mes inscriptions</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="{{path('app_favoris')}}">
+										<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" width="1em" height="1em" fill="currentColor" class="fs-4" aria-hidden="true"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M256.3-.0068C261.9-.0507 267.3 1.386 272.1 4.066L476.5 90.53C487.7 95.27 495.2 105.1 495.9 118.1C501.6 213.6 466.7 421.9 272.5 507.7C267.6 510.5 261.1 512.1 256.3 512C250.5 512.1 244.9 510.5 239.1 507.7C45.8 421.9 10.95 213.6 16.57 118.1C17.28 105.1 24.83 95.27 36.04 90.53L240.4 4.066C245.2 1.386 250.7-.0507 256.3-.0068H256.3zM266.1 363.4L364.2 263.6C392.2 234.7 390.5 186.6 358.1 159.5C331.8 135.8 291.5 140.2 266.1 166.5L256.4 176.1L245.9 166.5C221.4 140.2 180.2 135.8 153 159.5C121.5 186.6 119.8 234.7 147.8 263.6L244.2 363.4C251.2 369.5 260.8 369.5 266.1 363.4V363.4z"></path>
+										</svg>
+										Hackathons favoris</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-8 col-lg-9 col-xl-9" style="margin-top: 100px;">
+				<div class="container">
+					<div class="main-body">
+						<nav aria-label="breadcrumb" class="main-breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="{{path('app_home')}}#page-top">
+										<span>Home</span>
+									</a>
+								</li>
+								<li class="breadcrumb-item">
+									<a>
+										<span>Profil</span>
+									</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">
+									<span>Mon profil</span>
+								</li>
+							</ol>
+						</nav>
+						<div class="row gutters-sm">
+							<div class="col-md-4 mb-3">
+								<div class="card">
+									<div class="card-body">
+										<div class="text-center d-flex flex-column align-items-center">
+											<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="font-size: 60px;color: var(--bs-gray-dark);"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M256 112c-48.6 0-88 39.4-88 88C168 248.6 207.4 288 256 288s88-39.4 88-88C344 151.4 304.6 112 256 112zM256 240c-22.06 0-40-17.95-40-40C216 177.9 233.9 160 256 160s40 17.94 40 40C296 222.1 278.1 240 256 240zM256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 464c-46.73 0-89.76-15.68-124.5-41.79C148.8 389 182.4 368 220.2 368h71.69c37.75 0 71.31 21.01 88.68 54.21C345.8 448.3 302.7 464 256 464zM416.2 388.5C389.2 346.3 343.2 320 291.8 320H220.2c-51.36 0-97.35 26.25-124.4 68.48C65.96 352.5 48 306.3 48 256c0-114.7 93.31-208 208-208s208 93.31 208 208C464 306.3 446 352.5 416.2 388.5z"></path>
+											</svg>
+											<div class="mt-3">
+												<h4>{{user.prenom}} {{user.nom}}</h4>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<div class="card mb-3">
+									<div class="card-body"><hr><div class="row">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Nom complet</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<span>
+													{{user.prenom}} {{user.nom}}</span>
+											</div>
+										</div><hr><div class="row">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Mail</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<span>
+													{{user.mail}}</span>
+											</div>
+										</div><hr><div class="row">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Téléphone</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<span>
+													{{user.tel}}</span>
+											</div>
+										</div><hr><div class="row">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Date de naissance</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<span>
+													{{user.dateNaissance|format_datetime()}}</span>
+											</div>
+										</div><hr><div class="row">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Portfolio</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<span>
+													{{user.lienPortfolio}}</span>
+											</div>
+										</div><hr></div>
+								</div>
+								<div class="d-flex justify-content-around">
+                                    <a href="{{path('app_inscriptions')}}">
+										<button class="btn btn-primary" type="button">Mes inscriptions</button>
+                                    </a>
+                                    {# bouton se deconnecter #}
+                                    <a href="{{path('app_logout')}}">
+										<button class="btn btn-secondary" type="button">Me Deconnecter</button>
+                                    </a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
