@@ -39,8 +39,12 @@ class Evenements
     #[ORM\JoinColumn(name: 'hackathon', nullable: false)]
     private ?Hackatons $hackathon = null;
 
+    #[ORM\OneToMany(mappedBy: 'relationEvenement', targetEntity: Inscrits::class, orphanRemoval: true)]
+    private Collection $inscrits;
+    
     public function __construct()
     {
+        $this->inscrits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -120,4 +124,33 @@ class Evenements
         return $this;
     }
 
+    /**
+     * @return Collection<int, Inscrits>
+     */
+    public function getInscrits(): Collection
+    {
+        return $this->inscrits;
+    }
+
+    public function addInscrit(Inscrits $inscrit): self
+    {
+        if (!$this->inscrits->contains($inscrit)) {
+            $this->inscrits->add($inscrit);
+            $inscrit->setRelationEvenement($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInscrit(Inscrits $inscrit): self
+    {
+        if ($this->inscrits->removeElement($inscrit)) {
+            // set the owning side to null (unless already changed)
+            if ($inscrit->getRelationEvenement() === $this) {
+                $inscrit->setRelationEvenement(null);
+            }
+        }
+
+        return $this;
+    }
 }

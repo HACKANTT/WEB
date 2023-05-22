@@ -12,13 +12,6 @@ class Atelier extends Evenements
 //Atlier est une classe enfant de Evenements
 {
 
-    #[ORM\OneToMany(mappedBy: 'relationAtelier', targetEntity: Inscrits::class)]
-    private Collection $inscrits;
-    //On a une collection d'inscrits
-    //un atelier peut avoir plusieurs inscrits
-    //un inscrit ne peut avoir qu'un seul atelier
-
-
     #[ORM\OneToMany(mappedBy: 'id_A', targetEntity: Avis::class, orphanRemoval: true)]
     private Collection $avis;
 
@@ -30,38 +23,7 @@ class Atelier extends Evenements
 
     public function __construct()
     {
-        $this->inscrits = new ArrayCollection();
         $this->avis = new ArrayCollection();
-    }
-
-    /**
-     * @return Collection<int, Inscrits>
-     */
-    public function getInscrits(): Collection
-    {
-        return $this->inscrits;
-    }
-
-    public function addInscrit(Inscrits $inscrit): self
-    {
-        if (!$this->inscrits->contains($inscrit)) {
-            $this->inscrits->add($inscrit);
-            $inscrit->setRelationAtelier($this);
-        }
-
-        return $this;
-    }
-
-    public function removeInscrit(Inscrits $inscrit): self
-    {
-        if ($this->inscrits->removeElement($inscrit)) {
-            // set the owning side to null (unless already changed)
-            if ($inscrit->getRelationAtelier() === $this) {
-                $inscrit->setRelationAtelier(null);
-            }
-        }
-
-        return $this;
     }
 
     /**

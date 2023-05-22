@@ -300,10 +300,10 @@ class APIController extends AbstractController
             $prenom = $inscrit['prenom'];
             $mail = $inscrit['email'];
             //on récupère l'atelier
-            $atelier = $doctrine->getRepository(Atelier::class)->findOneBy(['id' => $inscrit['atelier']]);
+            $atelier = $doctrine->getRepository(Evenements::class)->findOneBy(['id' => $inscrit['atelier']]);
             //on vérifie qu'il n'y a pas déjà d'inscrit avec cet atelier et ce mail
             foreach ($inscrits as $uninscrit) {
-                if ($uninscrit->getRelationAtelier() == $atelier && $uninscrit->getEmail() == $mail) {
+                if ($uninscrit->getRelationEvenement() == $atelier && $uninscrit->getEmail() == $mail) {
                     return new JsonResponse(['error' => 'Vous êtes déjà inscrit à cet atelier'], 403);
                 }
             }
@@ -318,7 +318,7 @@ class APIController extends AbstractController
             //si tout est bon, on crée un nouvel inscrit
             $nouvelinscrit = new Inscrits();
             //on lui associe l'atelier
-            $nouvelinscrit->setRelationAtelier($atelier);
+            $nouvelinscrit->setRelationEvenement($atelier);
             //on lui associe le nom, prenom et mail
             $nouvelinscrit->setNom($nom);
             $nouvelinscrit->setPrenom($prenom);
@@ -332,6 +332,52 @@ class APIController extends AbstractController
             //si le contenu est vide, on retourne une erreur
             return new JsonResponse(['error' => 'Aucun contenu'], 403);
         }
+
+    //on créé une route qui recoit en json les infos nom, prenom et mail d'une appli mobile et conference pour créer un inscrit dans la tables Inscrits
+    #[Route('/api/inscription/conference', name: 'app_api_inscription_conference', methods: ['POST'])]
+    public function inscritsConference(Request $request,ManagerRegistry $doctrine): JsonResponse {
+        $inscrits = $doctrine->getRepository(Inscrits::class)->findAll();
+        //on récupère le contenu de la requete
+        $content = $request->getContent();
+        //si le contenu n'est pas vide
+        if (!empty($content)) {
+            //on décode le json en tableau associatif
+            $inscrit = json_decode($content, true);
+            //on récupère le nom, prenom et mail
+            $nom = $inscrit['nom'];
+            $prenom = $inscrit['prenom'];
+            $mail = $inscrit['email'];
+            //on récupère la conference
+            $conference = $doctrine->getRepository(Evenements::class)->findOneBy(['id' => $inscrit['conference']]);
+            //on vérifie qu'il n'y a pas déjà d'inscrit avec cette conference et ce mail
+            foreach ($inscrits as $uninscrit) {
+                if ($uninscrit->getRelationEvenement() == $conference && $uninscrit->getEmail() == $mail) {
+                    return new JsonResponse(['error' => 'Vous êtes déjà inscrit à cette conference'], 403);
+                }
+            }
+            //on verifie que la date ne dépasse aps celle d'aujourd'hui 
+            if ($conference->getDateEvent() < new \DateTime()) {
+                return new JsonResponse(['error' => 'La date de l\'atelier est dépassée'], 403);
+            }
+            //si tout est bon, on crée un nouvel inscrit
+            $nouvelinscrit = new Inscrits();
+            //on lui associe la conference
+            $nouvelinscrit->setRelationEvenement($conference);
+            //on lui associe le nom, prenom et mail
+            $nouvelinscrit->setNom($nom);
+            $nouvelinscrit->setPrenom($prenom);
+            $nouvelinscrit->setEmail($mail);
+            //on persiste et on flush
+            $doctrine->getManager()->persist($nouvelinscrit);
+            $doctrine->getManager()->flush();
+            //on retourne un message de succès
+            return new JsonResponse(['success' => 'Inscription réussie'], 200);
+            }
+            //si le contenu est vide, on retourne une erreur
+            return new JsonResponse(['error' => 'Aucun contenu'], 403);
+        }
+
+
 
 
     /*#[Route('/api/evenements', name: 'app_api_evenements')]

@@ -23,8 +23,9 @@ class Inscrits
     private ?string $email = null;
 
     #[ORM\ManyToOne(inversedBy: 'inscrits')]
-     #[ORM\JoinColumn(name: 'atelier', referencedColumnName: 'id')]
-    private ?Atelier $relationAtelier = null;
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Evenements $relationEvenement = null;
+
 
     public function getId(): ?int
     {
@@ -67,15 +68,16 @@ class Inscrits
         return $this;
     }
 
-    public function getRelationAtelier(): ?Atelier
+    public function getRelationEvenement(): ?Evenements
     {
-        return $this->relationAtelier;
+        return $this->relationEvenement;
     }
 
-    public function setRelationAtelier(?Atelier $relationAtelier): self
+    public function setRelationEvenement(?Evenements $relationEvenement): self
     {
-        $this->relationAtelier = $relationAtelier;
+        $this->relationEvenement = $relationEvenement;
 
         return $this;
     }
+
 }
